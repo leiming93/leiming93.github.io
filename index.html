@@ -14,6 +14,13 @@ body {
   color: #333;
 }
 
+/* 颜色变量 */
+:root {
+  --news-color: #003366;   /* 新闻 深蓝 */
+  --work-color: #0a9396;   /* 工作 青绿 */
+  --edu-color:  #005f73;   /* 教育 青蓝 */
+}
+
 /* 顶部导航栏（白底、居中、置顶） */
 nav {
   position: sticky;
@@ -28,7 +35,7 @@ nav {
 }
 
 nav a {
-  font-size: 15px;
+  font-size: 18px;   /* 导航字体变大 */
   color: #444;
   text-decoration: none;
 }
@@ -46,10 +53,10 @@ nav a:hover {
 /* 左侧个人信息栏（滚动不动） */
 .sidebar {
   position: sticky;
-  top: 70px; /* 下面留出导航高度 */
+  top: 70px; /* 给导航栏留高度 */
   align-self: start;
   height: calc(100vh - 70px);
-  padding: 30px 20px;
+  padding: 30px 24px;
   background: #ffffff;
   box-shadow: 4px 0 14px rgba(0, 0, 0, 0.08);
 }
@@ -60,26 +67,26 @@ nav a:hover {
   border-radius: 50%;
   object-fit: cover;
   display: block;
-  margin: 0 auto 20px;
+  margin: 0 0 20px 0; /* 靠左 */
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 .sidebar-name {
-  text-align: center;
   font-size: 24px;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: 14px;
+  text-align: left;   /* 靠左对齐 */
 }
 
-/* 左侧：图标+文字对齐 */
+/* 左侧：图标+文字靠左对齐 */
 .sidebar-line {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start; /* 靠左 */
   gap: 10px;
-  margin: 12px 0;
+  margin: 10px 0;
   font-size: 16px;
-  text-align: center;
+  text-align: left;
 }
 
 .sidebar-line img {
@@ -125,19 +132,25 @@ section {
   box-shadow:0 4px 10px rgba(0,0,0,0.05);
 }
 
-/* 新闻 & 工作经历：深蓝色卡片 */
+/* 新闻 / 工作 / 教育：统一卡片结构 + 不同颜色 */
 .news-block,
-.work-block {
+.work-block,
+.edu-block {
   padding: 16px 18px;
-  border-left: 6px solid #003366;
   background: #fff;
   border-radius: 10px;
   margin-bottom: 18px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.06);
 }
 
+/* 左边色条 */
+.news-block  { border-left: 6px solid var(--news-color); }
+.work-block  { border-left: 6px solid var(--work-color); }
+.edu-block   { border-left: 6px solid var(--edu-color); }
+
 .news-date,
-.work-date {
+.work-date,
+.edu-date {
   font-weight: 600;
   font-size: 16px;
   display: flex;
@@ -147,33 +160,51 @@ section {
 
 /* 修复图标过大的问题 */
 .news-date img,
-.work-date img {
+.work-date img,
+.edu-date img {
   width: 26px !important;
   height: 26px !important;
   flex-shrink: 0;
 }
 
 .news-loc,
-.work-loc {
+.work-loc,
+.edu-loc {
   margin: 4px 0 8px;
   font-weight: 500;
   font-size: 15px;
 }
 
 .news-text,
-.work-text {
+.work-text,
+.edu-text {
   font-size: 16px;
   line-height: 1.7;
 }
 
-/* 教育经历字体 */
-.edu-item {
-  font-size: 17px;
-  margin-bottom: 14px;
-  line-height: 1.6;
+/* 教育经历字体加大已包含在 edu-text 中 */
+
+/* 研究方向：三块卡片，左中右展示 */
+.research-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
 }
 
-/* 发表文章：上下两个盒子 */
+.research-card {
+  background: #fff;
+  padding: 16px 18px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.research-card-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* 发表文章及专利：上下多个盒子 */
 .paper-box {
   background:#fff;
   padding:18px 20px;
@@ -239,7 +270,7 @@ footer {
   <a href="#work">工作经历</a>
   <a href="#edu">教育经历</a>
   <a href="#research">研究方向</a>
-  <a href="#papers">发表文章</a>
+  <a href="#papers">发表文章及专利</a>
   <a href="#honors">荣誉奖励</a>
 </nav>
 
@@ -377,46 +408,76 @@ footer {
         教育经历
       </h2>
 
-      <div class="edu-item">
-        哲学博士 · 澳门大学（2020 年 8 月 – 2024 年 6 月）<br>
-        学院：应用物理及材料工程学院<br>
-        导师：周冰朴副教授 · 柔性电子与智能界面实验室
+      <div class="edu-block">
+        <div class="edu-date">
+          <img src="https://cdn-icons-png.flaticon.com/512/747/747310.png" alt="">
+          2020/08 – 2024/06
+        </div>
+        <div class="edu-loc">澳门大学</div>
+        <div class="edu-text">
+          哲学博士 · 应用物理及材料工程学院 · 导师：周冰朴副教授 · 柔性电子与智能界面实验室。
+        </div>
       </div>
 
-      <div class="edu-item">
-        工学硕士 · 东北大学（2016 年 9 月 – 2018 年 1 月）<br>
-        学院：信息科学与工程学院<br>
-        导师：赵勇教授（长江学者，国家杰青，东北大学秦皇岛分校校长）
+      <div class="edu-block">
+        <div class="edu-date">
+          <img src="https://cdn-icons-png.flaticon.com/512/747/747310.png" alt="">
+          2016/09 – 2018/01
+        </div>
+        <div class="edu-loc">东北大学</div>
+        <div class="edu-text">
+          工学硕士 · 导师：赵勇教授（长江学者，国家杰青，东秦校长）。
+        </div>
       </div>
 
-      <div class="edu-item">
-        工学学士 · 哈尔滨理工大学（2012 年 9 月 – 2016 年 7 月）<br>
-        学院：测控技术与通信工程学院<br>
-        导师：盖建新教授（测控技术与通信工程学院副院长）
+      <div class="edu-block">
+        <div class="edu-date">
+          <img src="https://cdn-icons-png.flaticon.com/512/747/747310.png" alt="">
+          2012/09 – 2016/07
+        </div>
+        <div class="edu-loc">哈尔滨理工大学</div>
+        <div class="edu-text">
+          工学学士 · 导师：盖建新教授。
+        </div>
       </div>
     </section>
 
-    <!-- 研究方向 -->
+    <!-- 研究方向：三块并排 -->
     <section id="research">
       <h2 class="section-title">
         <img src="https://cdn-icons-png.flaticon.com/512/2920/2920403.png" alt="">
         研究方向
       </h2>
 
-      <div class="paper-box">
-        <ul>
-          <li><strong>柔性压力传感器：</strong> 通过微结构设计实现线性度与灵敏度的协同优化，面向可穿戴与人机交互应用。</li>
-          <li><strong>磁性人机交互器件：</strong> 设计柔性磁性结构，实现稳定可控的机械—磁响应。</li>
-          <li><strong>基于光纤结构的频率检测：</strong> 利用光纤结构监测柔性材料本征频率变化，用于高精度的人机交互与状态识别。</li>
-        </ul>
+      <div class="research-grid">
+        <div class="research-card">
+          <div class="research-card-title">柔性压力传感器</div>
+          <div class="research-card-text">
+            通过微结构设计实现电容/电阻型柔性压力传感器的线性度与灵敏度协同优化，用于可穿戴监测与人机交互。
+          </div>
+        </div>
+
+        <div class="research-card">
+          <div class="research-card-title">磁性人机交互器件</div>
+          <div class="research-card-text">
+            设计柔性磁性结构与磁响应单元，构建兼具稳定性与高灵敏度的磁性人机交互界面。
+          </div>
+        </div>
+
+        <div class="research-card">
+          <div class="research-card-title">基于光纤结构的频率检测</div>
+          <div class="research-card-text">
+            将光纤结构耦合于柔性材料，利用本征频率变化实现状态识别与高精度人机交互。
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- 发表文章 -->
+    <!-- 发表文章及专利 -->
     <section id="papers">
       <h2 class="section-title">
         <img src="https://cdn-icons-png.flaticon.com/512/3135/3135675.png" alt="">
-        发表文章
+        发表文章及专利
       </h2>
 
       <div class="paper-box">
@@ -434,6 +495,14 @@ footer {
         <h3>主要作者文章</h3>
         <ul>
           <li>（待补充）</li>
+        </ul>
+      </div>
+
+      <div class="paper-box">
+        <h3>专利</h3>
+        <ul>
+          <li>专利标题 A，雷铭 等，专利号：XXXXXX，年份：20XX。</li>
+          <li>专利标题 B，雷铭 等，专利号：XXXXXX，年份：20XX。</li>
         </ul>
       </div>
     </section>
