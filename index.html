@@ -1,46 +1,49 @@
-<section id="about">
-  <h2>关于我</h2>
-
-  <div class="about-wrapper">
-
-    <!-- 左侧个人信息 -->
-    <div class="about-left">
-
-      <img src="personal photo.png" class="about-photo">
-
-      <h3 class="about-name">雷铭</h3>
-
-      <p class="about-line">
-        <img src="https://cdn-icons-png.flaticon.com/512/535/535239.png" class="about-icon">
-        中国澳门
-      </p>
-
-      <p class="about-line">
-        <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" class="about-icon">
-        <a href="mailto:leiming@um.edu.mo">leiming@um.edu.mo</a>
-      </p>
-
-      <p class="about-line">
-        <img src="https://cdn-icons-png.flaticon.com/512/300/300221.png" class="about-icon">
-        <a href="https://scholar.google.com.hk/citations?user=L6gSsJYAAAAJ&hl=zh-CN" target="_blank">
-          Google Scholar
-        </a>
-      </p>
-
-    </div>
-
-    <!-- 右侧简介内容 -->
-    <div class="about-right">
-      <p>
-        在这里填写你的个人简介，包括研究方向、科研兴趣、技术专长、目前工作单位等。
-        语言简洁，建议 3–6 行。
-      </p>
-    </div>
-
-  </div>
-</section>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>雷铭 – 个人主页</title>
 
 <style>
+/* 基本样式 */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  line-height: 1.6;
+  background: #fafafa;
+  color: #333;
+}
+a { color:#0066cc; text-decoration:none; }
+a:hover { text-decoration:underline; }
+
+/* 导航栏 */
+nav {
+  background:#fff;
+  border-top:1px solid #eee;
+  border-bottom:1px solid #eee;
+  padding:12px 0;
+  text-align:center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+nav a { margin:0 18px; font-size:1rem; color:#444; }
+
+/* 页面结构 */
+section {
+  max-width:900px;
+  margin:40px auto;
+  padding:0 20px;
+}
+section h2 {
+  font-size:1.8rem;
+  margin-bottom:16px;
+  border-left:5px solid #0066cc;
+  padding-left:12px;
+}
+
+/* ABOUT 我（双栏布局） */
 .about-wrapper {
   display: grid;
   grid-template-columns: 260px 1fr;
@@ -48,7 +51,7 @@
   align-items: start;
 }
 
-/* 左侧样式 */
+/* 左侧个人信息 */
 .about-left {
   background: #fff;
   padding: 20px;
@@ -95,4 +98,252 @@
     margin: 0 auto 20px;
   }
 }
+
+/* 新闻模块（无图片版） */
+.news-block {
+  padding: 20px;
+  border-top: 6px solid #e8b8c8;
+  border-bottom: 6px solid #e8b8c8;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  margin-bottom: 40px;
+}
+.news-date {
+  font-weight:600;
+  font-size:15px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.news-date img {
+  width:26px;
+  height:26px;
+}
+.news-loc {
+  margin:6px 0 12px;
+  font-size:15px;
+  font-weight:500;
+}
+.news-text {
+  font-size:16px;
+  line-height:1.7;
+}
+
+/* 研究方向卡片 */
+.card-list {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
+  gap:16px;
+}
+.card {
+  background:#fff;
+  padding:16px;
+  border:1px solid #eee;
+  border-radius:10px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.05);
+}
+.card-title {
+  font-size:17px;
+  font-weight:600;
+  margin-bottom:8px;
+}
+
+/* 论文模块横排 */
+.paper-flex {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.paper-box {
+  background:#fff;
+  padding:16px 20px;
+  border:1px solid #eee;
+  border-radius:10px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.04);
+}
+.paper-box h3 {
+  font-size:1.3rem;
+  margin-bottom:10px;
+}
+.paper-box li { margin-bottom:10px; }
+
+/* 页尾 */
+footer {
+  text-align:center;
+  padding:30px 20px;
+  font-size:0.9rem;
+  color:#777;
+}
 </style>
+</head>
+
+<body>
+
+<!-- 导航栏 -->
+<nav>
+  <a href="#about">关于我</a>
+  <a href="#news">新闻</a>
+  <a href="#work">工作经历</a>
+  <a href="#edu">教育经历</a>
+  <a href="#research">研究方向</a>
+  <a href="#papers">发表文章</a>
+  <a href="#funds">科研项目</a>
+  <a href="#honors">荣誉奖励</a>
+</nav>
+
+<!-- ABOUT 我 -->
+<section id="about">
+  <h2>关于我</h2>
+
+  <div class="about-wrapper">
+
+    <!-- 左侧信息 -->
+    <div class="about-left">
+
+      <img src="personal photo.png" class="about-photo">
+
+      <h3 class="about-name">雷铭</h3>
+
+      <p class="about-line">
+        <img src="https://cdn-icons-png.flaticon.com/512/535/535239.png" class="about-icon">
+        中国澳门
+      </p>
+
+      <p class="about-line">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" class="about-icon">
+        <a href="mailto:leiming@um.edu.mo">leiming@um.edu.mo</a>
+      </p>
+
+      <p class="about-line">
+        <img src="https://cdn-icons-png.flaticon.com/512/300/300221.png" class="about-icon">
+        <a href="https://scholar.google.com.hk/citations?user=L6gSsJYAAAAJ&hl=zh-CN" target="_blank">
+          Google Scholar
+        </a>
+      </p>
+
+    </div>
+
+    <!-- 右侧简介 -->
+    <div class="about-right">
+      <p>
+        在这里填写你的个人简介，包括研究方向、科研兴趣、技术专长、目前工作单位等。
+        建议 3–6 行，语言简洁。
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- 新闻 -->
+<section id="news">
+  <h2>新闻</h2>
+
+  <div class="news-block">
+    <div class="news-date">
+      <img src="https://cdn-icons-png.flaticon.com/512/747/747310.png">
+      2025/09/24
+    </div>
+    <div class="news-loc">澳门，中国</div>
+    <div class="news-text">
+      雷铭的工作 <strong>“Dual-sided micro-cilia arrays for wearable pressure sensing”</strong>
+      被期刊 <em>Nanoscale</em> 接收。
+    </div>
+  </div>
+
+</section>
+
+<!-- 工作经历 -->
+<section id="work">
+  <h2>工作经历</h2>
+  <ul>
+    <li><strong>某大学</strong>（20XX–至今）<br>岗位与研究方向介绍。</li>
+    <li><strong>上一单位</strong>（20XX–20XX）<br>工作内容简介。</li>
+  </ul>
+</section>
+
+<!-- 教育经历 -->
+<section id="edu">
+  <h2>教育经历</h2>
+  <ul>
+    <li>博士 · 某大学（20XX–20XX）<br>导师：XXX</li>
+    <li>本科/硕士 · 某大学（20XX–20XX）</li>
+  </ul>
+</section>
+
+<!-- 研究方向 -->
+<section id="research">
+  <h2>研究方向</h2>
+
+  <div class="card-list">
+    <div class="card">
+      <div class="card-title">柔性传感器</div>
+      用于健康监测、压力感知、人机交互等方向。
+    </div>
+
+    <div class="card">
+      <div class="card-title">智能人机界面</div>
+      多模态交互系统研究。
+    </div>
+
+    <div class="card">
+      <div class="card-title">软电子系统</div>
+      柔性电路与可拉伸材料。
+    </div>
+  </div>
+</section>
+
+<!-- 发表文章 -->
+<section id="papers">
+  <h2>发表文章</h2>
+
+  <div class="paper-flex">
+
+    <div class="paper-box">
+      <h3>一作及通讯作者代表作</h3>
+      <ul>
+        <li>雷铭*, XXX 等 · 论文标题 1 · <em>Adv. Mater.</em> · 2025</li>
+        <li>雷铭*, XXX 等 · 论文标题 2 · <em>Nano Energy</em> · 2024</li>
+        <li>雷铭（通讯）XXX 等 · 论文标题 3 · <em>ACS Nano</em> · 2023</li>
+      </ul>
+    </div>
+
+    <div class="paper-box">
+      <h3>发表文章</h3>
+      <ul>
+        <li>XXX 等 · 论文 A · <em>Small</em> · 2024</li>
+        <li>XXX 等 · 论文 B · <em>Science Bulletin</em> · 2023</li>
+        <li>XXX 等 · 论文 C · <em>Sensors & Actuators A</em> · 2022</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- 科研项目 -->
+<section id="funds">
+  <h2>科研项目</h2>
+  <ul>
+    <li>项目 A（主持）</li>
+    <li>项目 B（参与）</li>
+  </ul>
+</section>
+
+<!-- 荣誉奖励 -->
+<section id="honors">
+  <h2>荣誉奖励</h2>
+  <ul>
+    <li>奖励 A（年份）</li>
+  </ul>
+</section>
+
+<footer>
+  © <span id="year"></span> 雷铭
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
