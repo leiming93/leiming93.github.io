@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Ming – Personal Homepage</title>
+<title>Ming – 个人主页</title>
 
 <style>
 /* 基本样式 */
@@ -14,43 +14,43 @@ body {
   background: #fafafa;
   color: #333;
 }
-a { color: #0066cc; text-decoration: none; }
-a:hover { text-decoration: underline; }
+a { color:#0066cc; text-decoration:none; }
+a:hover { text-decoration:underline; }
 
 header {
-  background: #fff;
-  padding: 40px 20px;
-  text-align: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  background:#fff;
+  padding:40px 20px;
+  text-align:center;
+  box-shadow:0 2px 8px rgba(0,0,0,0.05);
 }
-header h1 { margin: 0; font-size: 2.4rem; }
-header p { margin-top: 6px; color: #666; }
+header h1 { margin:0; font-size:2.4rem; }
+header p { margin-top:6px; color:#666; }
 
 nav {
-  background: #fff;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
-  padding: 12px 0;
-  text-align: center;
+  background:#fff;
+  border-top:1px solid #eee;
+  border-bottom:1px solid #eee;
+  padding:12px 0;
+  text-align:center;
 }
-nav a { margin: 0 18px; font-size: 1rem; color: #444; }
+nav a { margin:0 18px; font-size:1rem; color:#444; }
 
 section {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 0 20px;
+  max-width:900px;
+  margin:40px auto;
+  padding:0 20px;
 }
 
 section h2 {
-  font-size: 1.8rem;
-  margin-bottom: 16px;
-  border-left: 5px solid #0066cc;
-  padding-left: 12px;
+  font-size:1.8rem;
+  margin-bottom:16px;
+  border-left:5px solid #0066cc;
+  padding-left:12px;
 }
 
-ul { list-style: none; padding-left: 0; }
+ul { list-style:none; padding-left:0; }
 
-/* ————— 新闻模块 ————— */
+/* 新闻模块 */
 .news-block {
   display: grid;
   grid-template-columns: 1.2fr 0.9fr;
@@ -63,99 +63,113 @@ ul { list-style: none; padding-left: 0; }
   box-shadow: 0 6px 18px rgba(0,0,0,0.06);
   margin-bottom: 40px;
 }
-
-.news-left { padding-right: 8px; }
-
+.news-left { padding-right:8px; }
 .news-date {
-  font-weight: 600;
-  font-size: 15px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  font-weight:600;
+  font-size:15px;
+  display:flex;
+  align-items:center;
+  gap:8px;
 }
 .news-date img {
-  width: 26px;
-  height: 26px;
+  width:26px; height:26px;
 }
-
 .news-loc {
-  font-size: 15px;
-  margin: 6px 0 16px;
-  font-weight: 500;
-  color: #444;
+  font-size:15px;
+  margin:6px 0 16px;
+  font-weight:500;
+  color:#444;
 }
 .news-text {
-  font-size: 16px;
-  line-height: 1.7;
+  font-size:16px;
+  line-height:1.7;
 }
-
 .news-right img {
-  width: 100%;
-  border-radius: 10px;
+  width:100%; border-radius:10px;
 }
 
-/* ————— 简单卡片区（研究方向） ————— */
+/* 研究方向卡片 */
 .card-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 16px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
+  gap:16px;
 }
 .card {
-  background: #fff;
-  padding: 16px;
-  border: 1px solid #eee;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  background:#fff;
+  padding:16px;
+  border:1px solid #eee;
+  border-radius:10px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.05);
 }
 .card-title {
-  font-size: 17px;
-  font-weight: 600;
-  margin-bottom: 8px;
+  font-size:17px; font-weight:600; margin-bottom:8px;
 }
 
+/* ——— 论文模块（横排） ——— */
+.paper-flex {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.paper-box {
+  background:#fff;
+  padding:16px 20px;
+  border:1px solid #eee;
+  border-radius:10px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.04);
+}
+
+.paper-box h3 {
+  font-size:1.3rem;
+  margin-top:0;
+  margin-bottom:10px;
+  color:#333;
+}
+
+.paper-box ul { padding-left:16px; }
+.paper-box li { margin-bottom:10px; }
+
+/* 页尾 */
 footer {
-  text-align: center;
-  padding: 30px 20px;
-  font-size: 0.9rem;
-  color: #777;
+  text-align:center;
+  padding:30px 20px;
+  font-size:0.9rem;
+  color:#777;
 }
 </style>
 </head>
 
 <body>
 
-<!-- 顶部 -->
 <header>
   <h1>Ming</h1>
-  <p>Macao · China</p>
-  <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
+  <p>中国 · 澳门</p>
+  <p>邮箱：<a href="mailto:you@example.com">you@example.com</a></p>
 </header>
 
-<!-- 导航栏 -->
 <nav>
-  <a href="#about">About</a>
-  <a href="#news">News</a>
-  <a href="#work">Work</a>
-  <a href="#edu">Education</a>
-  <a href="#research">Research</a>
-  <a href="#funds">Fundings</a>
-  <a href="#honors">Honors</a>
+  <a href="#about">关于我</a>
+  <a href="#news">新闻</a>
+  <a href="#work">工作经历</a>
+  <a href="#edu">教育经历</a>
+  <a href="#research">研究方向</a>
+  <a href="#papers">发表文章</a>
+  <a href="#funds">科研项目</a>
+  <a href="#honors">荣誉奖励</a>
 </nav>
 
-<!-- 关于我 -->
 <section id="about">
-  <h2>About Me</h2>
+  <h2>关于我</h2>
   <p>
-    在这里写你的简介。例如：你的研究方向、所在单位、主要技术亮点，
-    未来研究计划等。内容控制在 3–6 行即可。
+    这里填写你的简介：包括研究方向、工作单位、科研兴趣等。语言简洁，3–6 行最佳。
   </p>
 </section>
 
-<!-- 新闻（新样式） -->
+<!-- 新闻模块 -->
 <section id="news">
-  <h2>News</h2>
+  <h2>新闻</h2>
 
-  <!-- 新闻条目 1（示例） -->
   <div class="news-block">
     <div class="news-left">
       <div class="news-date">
@@ -163,73 +177,96 @@ footer {
         2025/09/24
       </div>
 
-      <div class="news-loc">Macao, CHINA</div>
+      <div class="news-loc">澳门，中国</div>
 
       <div class="news-text">
-        Ming's work <strong>"Dual-sided micro-cilia arrays for wearable pressure sensing"</strong>
-        was accepted in <em>Nanoscale</em>.
+        Ming 的工作 <strong>“Dual-sided micro-cilia arrays for wearable pressure sensing”</strong>
+        被期刊 <em>Nanoscale</em> 接收。
       </div>
     </div>
 
     <div class="news-right">
-      <img src="your-image.png" alt="news image">
+      <img src="your-image.png">
     </div>
   </div>
 
 </section>
 
-<!-- 工作经历 -->
 <section id="work">
-  <h2>Work Experience</h2>
+  <h2>工作经历</h2>
   <ul>
-    <li><strong>University / Institute</strong>（20XX–至今）<br>职位：研究方向、职责简介。</li>
-    <li><strong>Previous Lab / Company</strong>（20XX–20XX）<br>岗位介绍。</li>
+    <li><strong>某大学</strong>（20XX–至今）<br>你的职位、方向、职责。</li>
+    <li><strong>上一单位</strong>（20XX–20XX）<br>简单介绍工作内容。</li>
   </ul>
 </section>
 
-<!-- 教育经历 -->
 <section id="edu">
-  <h2>Education</h2>
+  <h2>教育经历</h2>
   <ul>
-    <li>Ph.D., 某大学（20XX–20XX）<br>导师：XXX</li>
-    <li>B.Sc. / M.Sc., 某大学（20XX–20XX）</li>
+    <li>博士，某大学（20XX–20XX）<br>导师：XXX</li>
+    <li>本科 / 硕士，某大学（20XX–20XX）</li>
   </ul>
 </section>
 
-<!-- 研究方向 -->
 <section id="research">
-  <h2>Research</h2>
+  <h2>研究方向</h2>
   <div class="card-list">
     <div class="card">
-      <div class="card-title">Flexible Sensors</div>
-      开发高灵敏可穿戴传感器，用于健康监测与人体交互。
+      <div class="card-title">柔性传感器</div>
+      高灵敏可穿戴传感器，用于健康监测与人机交互。
     </div>
     <div class="card">
-      <div class="card-title">Human–Machine Interaction</div>
-      基于触觉与多模态信号的智能界面。
+      <div class="card-title">智能人机界面</div>
+      基于多模态信号的交互系统。
     </div>
     <div class="card">
-      <div class="card-title">Soft Electronics</div>
-      柔性材料、可拉伸电子系统集成。
+      <div class="card-title">软电子系统</div>
+      可拉伸电路与柔性系统集成技术。
     </div>
   </div>
 </section>
 
-<!-- 基金 -->
+<!-- ——————— 发表文章 ——————— -->
+<section id="papers">
+  <h2>发表文章</h2>
+
+  <div class="paper-flex">
+
+    <!-- 左栏：一作及通讯代表作 -->
+    <div class="paper-box">
+      <h3>一作及通讯代表作</h3>
+      <ul>
+        <li>Ming*, XXX 等，论文标题 1，<em>Adv. Mater.</em>，2025。</li>
+        <li>Ming*, XXX 等，论文标题 2，<em>Nano Energy</em>，2024。</li>
+        <li>Ming（通讯），XXX 等，论文标题 3，<em>ACS Nano</em>，2023。</li>
+      </ul>
+    </div>
+
+    <!-- 右栏：所有发表文章 -->
+    <div class="paper-box">
+      <h3>发表文章</h3>
+      <ul>
+        <li>XXX 等，论文标题 A，<em>Small</em>，2024。</li>
+        <li>XXX 等，论文标题 B，<em>Science Bulletin</em>，2023。</li>
+        <li>XXX 等，论文标题 C，<em>Sensors & Actuators A</em>，2022。</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
 <section id="funds">
-  <h2>Fundings</h2>
+  <h2>科研项目</h2>
   <ul>
-    <li>项目 A（主持）– 项目简介。</li>
-    <li>项目 B（参与）– 简介。</li>
+    <li>项目 A（主持）– 简介。</li>
+    <li>项目 B（参与）。</li>
   </ul>
 </section>
 
-<!-- 荣誉奖励 -->
 <section id="honors">
-  <h2>Honors</h2>
+  <h2>荣誉奖励</h2>
   <ul>
-    <li>某奖项（20XX）</li>
-    <li>某竞赛奖（20XX）</li>
+    <li>奖项 A（年份）</li>
   </ul>
 </section>
 
@@ -238,7 +275,8 @@ footer {
 </footer>
 
 <script>
-document.getElementById("year").textContent = new Date().getFullYear();
+document.getElementById("year").textContent =
+  new Date().getFullYear();
 </script>
 
 </body>
