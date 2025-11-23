@@ -96,13 +96,85 @@
   <p>这里写你的个人简介：比如目前在哪个单位／研究方向／特色成果。</p>
 </section>
 
-<section id="news">
-  <h2>最新信息</h2>
-  <ul>
-    <li>[2025/11] 写一条最新信息。</li>
-    <li>[2025/10] 写另一条重要新闻。</li>
-  </ul>
-</section>
+<style>
+.news-item {
+  width: 100%;
+  border-top: 6px solid #e8b8c8;   /* 上方粉色细条 */
+  border-bottom: 6px solid #e8b8c8; /* 下方粉色细条 */
+  padding: 20px;
+  margin: 40px 0;
+  background: #fff;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 20px;
+  align-items: center;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+}
+
+/* 左侧文字 */
+.news-left {
+  padding: 10px;
+}
+
+.news-date {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.news-date img {
+  width: 28px;
+  height: 28px;
+}
+
+.news-location {
+  font-size: 15px;
+  margin-bottom: 14px;
+  color: #333;
+  font-weight: 500;
+}
+
+.news-text {
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* 右侧图片 */
+.news-right img {
+  width: 100%;
+  border-radius: 10px;
+}
+</style>
+
+
+<div class="news-item">
+  <!-- 左侧文字区域 -->
+  <div class="news-left">
+
+    <div class="news-date">
+      <img src="https://cdn-icons-png.flaticon.com/512/747/747310.png">
+      <span>2025/09/24</span>
+    </div>
+
+    <div class="news-location">Macao, CHINA</div>
+
+    <div class="news-text">
+      Ming’s work of <strong>“Dual-sided micro-cilia arrays for wearable pressure sensing”</strong>
+      was accepted in <em>Nanoscale</em>.
+    </div>
+  </div>
+
+  <!-- 右侧图片（你想放什么都行） -->
+  <div class="news-right">
+    <img src="your-image.png" alt="News image">
+  </div>
+</div>
+
+
 
 <section id="work">
   <h2>工作经历</h2>
