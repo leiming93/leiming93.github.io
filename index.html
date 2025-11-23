@@ -2,123 +2,931 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
+  <title>你的课题组 / 实验室名称</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ming 的个人主页</title>
+
+  <!-- 可选：使用网络字体，不想用可以删掉这行 -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
+
   <style>
+    :root {
+      --primary: #004b8d;
+      --primary-light: #2b7fd3;
+      --accent: #f0b429;
+      --bg: #f4f6fb;
+      --bg-alt: #ffffff;
+      --text: #1f2933;
+      --muted: #6b7280;
+      --card-radius: 18px;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.12);
+      --max-width: 1100px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
     body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-      background: #f5f5f5;
-      color: #333;
-      line-height: 1.6;
+      font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      scroll-behavior: smooth;
     }
-    header {
-      background: #0d1117;
-      color: #fff;
-      padding: 60px 20px;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.8rem;
-    }
-    header p {
-      margin-top: 10px;
-      font-size: 1.2rem;
-      opacity: 0.8;
-    }
-    nav {
-      background: #161b22;
-      padding: 12px 0;
-      text-align: center;
-    }
-    nav a {
-      margin: 0 15px;
-      color: #c9d1d9;
+
+    a {
+      color: inherit;
       text-decoration: none;
-      font-weight: 500;
     }
-    nav a:hover {
-      color: #58a6ff;
+
+    img {
+      max-width: 100%;
+      display: block;
     }
-    section {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px;
+
+    /* 顶部导航 */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      backdrop-filter: blur(22px);
+      background: linear-gradient(
+          to bottom,
+          rgba(15, 23, 42, 0.9),
+          rgba(15, 23, 42, 0.6)
+        );
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
     }
-    h2 {
-      margin-top: 0;
-      border-left: 4px solid #58a6ff;
-      padding-left: 10px;
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 10px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
-    .projects {
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #fff;
+    }
+
+    .nav-logo-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: radial-gradient(circle at 30% 20%, #ffffff, #60a5fa);
+      box-shadow: 0 10px 30px rgba(59, 130, 246, 0.6);
+    }
+
+    .nav-logo-text {
+      font-family: "Montserrat", system-ui;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      font-size: 15px;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      font-size: 14px;
+      color: #e5e7eb;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(to right, #f97316, #facc15);
+      transition: width 0.2s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-toggle {
+      display: none;
+      width: 26px;
+      height: 20px;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+    }
+
+    .nav-toggle span {
+      display: block;
+      height: 2px;
+      background: #fff;
+      border-radius: 999px;
+    }
+
+    /* Hero 区 */
+    .hero {
+      min-height: 100vh;
+      padding-top: 78px; /* 留出导航高度 */
+      background: radial-gradient(circle at 0% 0%, #1d4ed8 0, #020617 45%),
+        radial-gradient(circle at 100% 0%, #f97316 0, #020617 55%),
+        #020617;
+      color: #f9fafb;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 40px 18px 60px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      font-size: 12px;
+      color: #e5e7eb;
+      margin-bottom: 12px;
+      background: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-tag-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 5px rgba(34, 197, 94, 0.2);
+    }
+
+    .hero-title {
+      font-family: "Montserrat", system-ui;
+      font-size: clamp(2.3rem, 3vw + 1.2rem, 3.3rem);
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+
+    .hero-title span {
+      color: #fbbf24;
+    }
+
+    .hero-subtitle {
+      font-size: 15px;
+      max-width: 500px;
+      color: #cbd5f5;
+      margin-bottom: 24px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .btn-primary,
+    .btn-outline {
+      font-size: 14px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #f97316, #facc15);
+      color: #111827;
+      font-weight: 600;
+      box-shadow: 0 15px 35px rgba(248, 181, 43, 0.38);
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      background: rgba(15, 23, 42, 0.6);
+      color: #e5e7eb;
+    }
+
+    .hero-meta {
+      font-size: 12px;
+      color: #9ca3af;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 260px;
+    }
+
+    .hero-card {
+      position: relative;
+      background: radial-gradient(circle at 0 0, #fef9c3, #f97316);
+      border-radius: 26px;
+      padding: 20px;
+      color: #111827;
+      box-shadow: var(--shadow-soft);
+      transform: rotate(-3deg);
+    }
+
+    .hero-card-title {
+      font-family: "Montserrat", system-ui;
+      font-weight: 600;
+      font-size: 15px;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .hero-card-main {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .hero-card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 11px;
+    }
+
+    .hero-card-tag {
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.82);
+    }
+
+    .hero-badge {
+      position: absolute;
+      right: 0;
+      bottom: -26px;
+      transform: translateX(20%);
+      background: rgba(15, 23, 42, 0.96);
+      color: #e5e7eb;
+      border-radius: 18px;
+      padding: 10px 14px;
+      font-size: 11px;
+      width: 190px;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.8);
+    }
+
+    .hero-badge-title {
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .hero-badge-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .hero-badge-list li::before {
+      content: "• ";
+      color: #facc15;
+    }
+
+    .hero-orbit {
+      position: absolute;
+      inset: -10px -18px;
+      border-radius: 32px;
+      border: 1px dashed rgba(248, 250, 252, 0.25);
+      opacity: 0.6;
+    }
+
+    /* 通用版块布局 */
+    .section {
+      padding: 70px 18px 10px;
+    }
+
+    .section-inner {
+      max-width: var(--max-width);
+      margin: 0 auto 50px;
+    }
+
+    .section-header {
+      margin-bottom: 22px;
+    }
+
+    .section-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 4px;
+      font-family: "Montserrat", system-ui;
+      font-weight: 600;
+    }
+
+    .section-title {
+      font-size: 24px;
+      margin-bottom: 6px;
+      font-family: "Montserrat", system-ui;
+    }
+
+    .section-desc {
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 620px;
+    }
+
+    .cards-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
+      gap: 18px;
     }
+
     .card {
-      background: #fff;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-      transition: transform 0.2s ease;
+      background: var(--bg-alt);
+      border-radius: var(--card-radius);
+      padding: 18px 18px 16px;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.06);
+      position: relative;
+      overflow: hidden;
     }
-    .card:hover {
-      transform: translateY(-4px);
+
+    .card-tag {
+      display: inline-block;
+      font-size: 11px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: rgba(59, 130, 246, 0.09);
+      color: #1d4ed8;
+      margin-bottom: 6px;
     }
+
+    .card-title {
+      font-size: 17px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .card-sub {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .card-body {
+      font-size: 13px;
+      color: #4b5563;
+    }
+
+    .card-corner {
+      position: absolute;
+      right: -40px;
+      top: -40px;
+      width: 100px;
+      height: 100px;
+      background: radial-gradient(circle at 30% 30%, #fee2e2, #fecaca00);
+      opacity: 0.5;
+    }
+
+    /* Members 区域 */
+    .members-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 22px;
+    }
+
+    .member-card {
+      display: flex;
+      gap: 16px;
+    }
+
+    .member-avatar {
+      width: 70px;
+      height: 70px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #60a5fa, #22c55e);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    .member-name {
+      font-weight: 600;
+      font-size: 16px;
+      margin-bottom: 2px;
+    }
+
+    .member-role {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .member-text {
+      font-size: 13px;
+      color: #4b5563;
+    }
+
+    .member-list {
+      font-size: 13px;
+      background: var(--bg-alt);
+      border-radius: var(--card-radius);
+      padding: 14px 16px;
+      border: 1px dashed rgba(148, 163, 184, 0.6);
+    }
+
+    .member-list ul {
+      padding-left: 16px;
+      margin-top: 8px;
+    }
+
+    /* Publications & News */
+    .two-cols {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 22px;
+    }
+
+    .list-block {
+      background: var(--bg-alt);
+      border-radius: var(--card-radius);
+      padding: 16px 18px;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+      font-size: 13px;
+    }
+
+    .list-block h3 {
+      font-size: 16px;
+      margin-bottom: 8px;
+      font-family: "Montserrat", system-ui;
+    }
+
+    .list-block ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .list-block li {
+      margin-bottom: 6px;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .list-block li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #f97316;
+    }
+
+    .list-meta {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    /* Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #1d4ed8, #f97316);
+      min-height: 120px;
+    }
+
+    .gallery-caption {
+      position: absolute;
+      left: 10px;
+      bottom: 8px;
+      color: #f9fafb;
+      font-size: 12px;
+      text-shadow: 0 8px 18px rgba(15, 23, 42, 0.9);
+    }
+
+    /* 底部 */
     footer {
-      margin-top: 60px;
-      text-align: center;
-      padding: 25px;
-      background: #0d1117;
-      color: #777;
-      font-size: 0.9rem;
+      padding: 30px 18px 26px;
+      background: #020617;
+      color: #9ca3af;
+      font-size: 12px;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 14px;
+    }
+
+    .footer-links a {
+      color: #e5e7eb;
+      font-size: 12px;
+    }
+
+    /* 滚动动画 */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* 响应式 */
+    @media (max-width: 880px) {
+      .nav-links {
+        position: absolute;
+        right: 16px;
+        top: 52px;
+        background: rgba(15, 23, 42, 0.96);
+        border-radius: 14px;
+        padding: 10px 14px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        font-size: 14px;
+        min-width: 170px;
+        transform-origin: top right;
+        transform: scale(0.9);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.18s ease, transform 0.18s ease;
+      }
+
+      .nav-links.open {
+        opacity: 1;
+        pointer-events: auto;
+        transform: scale(1);
+      }
+
+      .nav-toggle {
+        display: flex;
+      }
+
+      .hero-inner {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-visual {
+        order: -1;
+      }
+
+      .section {
+        padding-top: 56px;
+      }
+
+      .members-grid,
+      .two-cols {
+        grid-template-columns: minmax(0, 1fr);
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Ming</h1>
-    <p>欢迎来到我的 GitHub 个人网站</p>
+  <!-- 顶部导航 -->
+  <header class="navbar">
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <div class="nav-logo-mark"></div>
+        <div class="nav-logo-text">YOUR GROUP</div>
+      </div>
+
+      <nav class="nav-links" id="nav-links">
+        <a href="#home">Home</a>
+        <a href="#research">Research</a>
+        <a href="#members">Members</a>
+        <a href="#publications">Publications</a>
+        <a href="#news">News</a>
+        <a href="#gallery">Gallery</a>
+      </nav>
+
+      <div class="nav-toggle" id="nav-toggle">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
   </header>
 
-  <nav>
-    <a href="#about">关于我</a>
-    <a href="#projects">项目</a>
-    <a href="#contact">联系</a>
-  </nav>
-
-  <section id="about">
-    <h2>关于我</h2>
-    <p>这里写你的简介，比如你做什么、你的技术栈、学习方向等。</p>
-  </section>
-
-  <section id="projects">
-    <h2>项目</h2>
-    <div class="projects">
-      <div class="card">
-        <h3>项目一</h3>
-        <p>写一点描述，介绍项目做了什么。</p>
+  <!-- Hero 区 -->
+  <section class="hero" id="home">
+    <div class="hero-inner">
+      <div class="hero-text reveal">
+        <div class="hero-tag">
+          <span class="hero-tag-dot"></span>
+          <span>Flexible Electronics & Intelligent Interfaces Lab</span>
+        </div>
+        <h1 class="hero-title">
+          你的课题组 / 实验室<br />
+          <span>柔性电子 · 智能人机界面 · 多模态传感</span>
+        </h1>
+        <p class="hero-subtitle">
+          我们专注于柔性电子器件、可穿戴健康监测系统以及智能人机界面。
+          通过材料设计、器件结构创新和多模态信号处理，探索新一代交互方式与智能感知系统。
+        </p>
+        <div class="hero-buttons">
+          <a href="#news" class="btn-primary">查看最新动态</a>
+          <a href="#publications" class="btn-outline">代表性成果</a>
+        </div>
+        <div class="hero-meta">
+          招收博士 / 硕士 / 研究助理，欢迎邮件联系 you@example.com
+        </div>
       </div>
-      <div class="card">
-        <h3>项目二</h3>
-        <p>写一点描述，介绍项目做了什么。</p>
-      </div>
-      <div class="card">
-        <h3>项目三</h3>
-        <p>写一点描述，介绍项目做了什么。</p>
+
+      <div class="hero-visual reveal">
+        <div class="hero-card">
+          <div class="hero-orbit"></div>
+          <div class="hero-card-title">RESEARCH FOCUS</div>
+          <div class="hero-card-main">
+            Flexible Electronics<br />
+            Smart HMI Systems
+          </div>
+          <div class="hero-card-tags">
+            <span class="hero-card-tag">Skin-like Sensors</span>
+            <span class="hero-card-tag">Wearable Health</span>
+            <span class="hero-card-tag">Soft Robotics</span>
+          </div>
+        </div>
+
+        <div class="hero-badge">
+          <div class="hero-badge-title">当前方向 / Current Topics</div>
+          <ul class="hero-badge-list">
+            <li>柔性传感器设计与建模</li>
+            <li>多模态信号融合与感知</li>
+            <li>人机交互与智能界面</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="contact">
-    <h2>联系</h2>
-    <p>GitHub: <a href="https://github.com/你的用户名" target="_blank">你的用户名</a></p>
-    <p>Email: 你@example.com</p>
+  <!-- 研究方向 -->
+  <section class="section" id="research">
+    <div class="section-inner">
+      <div class="section-header reveal">
+        <div class="section-eyebrow">RESEARCH</div>
+        <h2 class="section-title">研究方向 · Research Areas</h2>
+        <p class="section-desc">
+          以下为本课题组目前主要的研究方向，可根据你实际情况修改内容与数量。
+        </p>
+      </div>
+
+      <div class="cards-grid">
+        <article class="card reveal">
+          <div class="card-corner"></div>
+          <div class="card-tag">柔性与可穿戴传感器</div>
+          <h3 class="card-title">Skin-integrated & Wearable Sensors</h3>
+          <p class="card-sub">
+            用于生理信号、运动状态和环境因素监测的高灵敏柔性传感器。
+          </p>
+          <p class="card-body">
+            设计可拉伸、可弯曲的传感结构，通过新型导电材料与微结构实现
+            高灵敏度、低噪声和长时间稳定工作，面向健康监测和人机交互。
+          </p>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-corner"></div>
+          <div class="card-tag">智能人机界面</div>
+          <h3 class="card-title">Intelligent Human-Machine Interface</h3>
+          <p class="card-sub">
+            将多模态传感信号与算法结合，实现自然直观的人机交互体验。
+          </p>
+          <p class="card-body">
+            包括基于触觉、手势、肌电等信号的交互系统，以及可穿戴输入设备、
+            智能控制界面，为 XR、机器人等应用提供新型交互方式。
+          </p>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-corner"></div>
+          <div class="card-tag">软体系统与集成</div>
+          <h3 class="card-title">Soft Systems & Integrated Platforms</h3>
+          <p class="card-sub">
+            面向软体机器人与可穿戴系统的电路集成与封装技术。
+          </p>
+          <p class="card-body">
+            研究柔性电路、功耗管理和信号处理模块在软体系统中的集成，
+            实现高可靠度、长续航和多功能一体化的智能系统。
+          </p>
+        </article>
+      </div>
+    </div>
   </section>
 
+  <!-- 成员 -->
+  <section class="section" id="members">
+    <div class="section-inner">
+      <div class="section-header reveal">
+        <div class="section-eyebrow">MEMBERS</div>
+        <h2 class="section-title">课题组成员 · Group Members</h2>
+        <p class="section-desc">
+          下面为示例内容，你可以根据实际成员情况进行增删改。
+        </p>
+      </div>
+
+      <div class="members-grid">
+        <div class="card reveal">
+          <div class="member-card">
+            <div class="member-avatar">PI</div>
+            <div>
+              <div class="member-name">Your Name, Ph.D.</div>
+              <div class="member-role">
+                Principal Investigator · Assistant Professor / Researcher
+              </div>
+              <p class="member-text">
+                简要介绍你目前的职务、研究方向、过往经历（博士毕业学校、
+                博后单位、代表性工作等），建议 3-5 行。
+              </p>
+              <p class="member-text" style="margin-top:8px;">
+                Email: <a href="mailto:you@example.com">you@example.com</a><br />
+                Google Scholar / ORCID / ResearchGate 等链接也可以写在这里。
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="member-list reveal">
+          <strong>在读学生 / Students</strong>
+          <ul>
+            <li>张三，Ph.D. candidate（2024–），方向：柔性传感材料</li>
+            <li>李四，M.Sc. student（2023–），方向：可穿戴健康监测</li>
+            <li>王五，M.Sc. student（2022–），方向：人机交互系统</li>
+          </ul>
+          <br />
+          <strong>毕业成员 / Alumni</strong>
+          <ul>
+            <li>某某（2022），现就职于 XX 公司 / 高校</li>
+            <li>某某（2021），继续攻读博士 / 海外深造</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 论文 + 新闻 -->
+  <section class="section" id="publications">
+    <div class="section-inner">
+      <div class="section-header reveal">
+        <div class="section-eyebrow">OUTPUTS</div>
+        <h2 class="section-title">学术成果与最新动态</h2>
+        <p class="section-desc">
+          左侧可放代表性论文或专利，右侧放 News / Updates，结构类似原网站。
+        </p>
+      </div>
+
+      <div class="two-cols">
+        <div class="list-block reveal">
+          <h3>Selected Publications</h3>
+          <ul>
+            <li>
+              你的名字*, 合作者等. “Paper Title 1”.
+              <em>Advanced Materials</em>, 2025.<br />
+              <span class="list-meta">IF, JCR Q1, Cover / Highlight (如有)</span>
+            </li>
+            <li>
+              你的名字*, 合作者等. “Paper Title 2”.
+              <em>Science Advances</em>, 2024.
+            </li>
+            <li>
+              合作者, 你的名字. “Paper Title 3”.
+              <em>ACS Nano</em>, 2023.
+            </li>
+          </ul>
+        </div>
+
+        <div class="list-block reveal" id="news">
+          <h3>News & Updates</h3>
+          <ul>
+            <li>
+              [2025-08] 课题组招收 2026 级硕士 / 博士生及科研助理，欢迎邮件咨询。
+            </li>
+            <li>
+              [2025-05] 论文 “XXX” 被 <em>Adv. Mater.</em> 接收。
+            </li>
+            <li>
+              [2025-03] 在 XX 学术会议做邀请报告。
+            </li>
+            <li>
+              [2024-12] 获得某某科研项目 / 基金资助。
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="section" id="gallery">
+    <div class="section-inner">
+      <div class="section-header reveal">
+        <div class="section-eyebrow">GALLERY</div>
+        <h2 class="section-title">实验室剪影 · Lab Gallery</h2>
+        <p class="section-desc">
+          这里使用占位块。你可以将每个 <code>.gallery-item</code> 里面换成
+          <code>&lt;img src="xxx.jpg"&gt;</code>，并保留文字说明。
+        </p>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item reveal">
+          <!-- 换成你的图片：<img src="lab1.jpg" alt="Lab 1"> -->
+          <div class="gallery-caption">Group meeting · 2025</div>
+        </div>
+        <div class="gallery-item reveal">
+          <div class="gallery-caption">Conference talk</div>
+        </div>
+        <div class="gallery-item reveal">
+          <div class="gallery-caption">Device demo</div>
+        </div>
+        <div class="gallery-item reveal">
+          <div class="gallery-caption">Team building</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 底部 -->
   <footer>
-    © 2025 Ming. All rights reserved.
+    <div class="footer-inner">
+      <div>© <span id="year"></span> Your Group · All rights reserved.</div>
+      <div class="footer-links">
+        <a href="#home">Back to top</a>
+        <a href="mailto:you@example.com">Contact</a>
+        <a href="https://github.com/你的用户名" target="_blank">GitHub</a>
+      </div>
+    </div>
   </footer>
+
+  <script>
+    // 移动端导航
+    const navToggle = document.getElementById("nav-toggle");
+    const navLinks = document.getElementById("nav-links");
+    navToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+    });
+
+    // 点击菜单后收起（移动端）
+    navLinks.querySelectorAll("a").forEach((a) => {
+      a.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+      });
+    });
+
+    // 自动年份
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // 滚动出现动画
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+  </script>
 </body>
 </html>
