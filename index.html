@@ -1,726 +1,645 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>雷铭 – 个人主页</title>
-
-<style>
-/* 全局样式 */
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
-  background: #f7f7f7;
-  color: #333;
-}
-
-/* 颜色变量 */
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#14384d">
+  <title>雷铭 Ming Lei | 柔性传感与智能人机交互</title>
+  <meta name="description" content="雷铭（Ming Lei）博士的学术主页：柔性压力传感器、磁性人机交互器件与光纤频率检测。了解研究方向、发表论文及学术经历。">
+  <link rel="canonical" href="https://leiming93.github.io/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="雷铭 Ming Lei | 柔性传感与智能人机交互">
+  <meta property="og:description" content="研究方向、代表成果、发表论文与学术经历。">
+  <meta property="og:url" content="https://leiming93.github.io/">
+  <meta property="og:image" content="https://leiming93.github.io/personal-photo.png">
+  <meta property="og:image:alt" content="雷铭博士照片">
+  <meta property="og:locale" content="zh_CN">
+  <link rel="icon" href="personal-photo.png" type="image/png">
+  <style>
+/* Static academic homepage. No external fonts or UI dependencies. */
+/* Readability: 17–18px body, 16px bibliography details, 22px paper titles. */
 :root {
-  --news-color: #003366;   /* 新闻 深蓝 */
-  --work-color: #0a9396;   /* 工作 青绿 */
-  --edu-color:  #005f73;   /* 教育 青蓝 */
+  --navy: #14384d;
+  --navy-deep: #0e2b3d;
+  --teal: #2c6d70;
+  --ink: #233841;
+  --muted: #506570;
+  --line: #dce4e7;
+  --paper: #ffffff;
+  --wash: #f1f5f5;
+  --serif: Georgia, "Times New Roman", "Noto Serif CJK SC", "Songti SC", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
 }
-
-/* 顶部导航栏（白底、居中、置顶） */
-nav {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: #ffffff;
-  border-bottom: 1px solid #e5e5e5;
-  padding: 10px 40px;
-  display: flex;
-  justify-content: center;
-  gap: 26px;
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 112px; }
+body { margin: 0; font-family: var(--sans); color: var(--ink); background: var(--paper); font-size: 18px; line-height: 1.8; -webkit-font-smoothing: antialiased; }
+body.menu-open { overflow: hidden; }
+button, input, select { font: inherit; }
+button, summary, select { cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+img, svg { display: block; max-width: 100%; }
+button { color: inherit; }
+button:disabled { cursor: default; }
+button, input, select { border-radius: 0; }
+:focus-visible { outline: 3px solid #39888b; outline-offset: 5px; }
+::selection { color: var(--navy-deep); background: #d1e6e4; }
+[hidden] { display: none !important; }
+.wrap { width: min(1160px, calc(100% - 96px)); margin-inline: auto; }
+.skip-link { position: fixed; z-index: 50; top: 10px; left: 16px; padding: 10px 18px; background: white; transform: translateY(-160%); }
+.skip-link:focus { transform: translateY(0); }
+.site-header { position: sticky; top: 0; z-index: 20; background: rgb(255 255 255 / 97%); border-bottom: 1px solid var(--line); }
+.header-inner { min-height: 94px; display: flex; justify-content: space-between; align-items: center; gap: 30px; }
+.brand { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
+.brand-monogram { display: grid; place-items: center; width: 43px; height: 43px; background: var(--navy); color: white; font: 23px var(--serif); letter-spacing: -2px; padding-right: 2px; }
+.brand-name { display: block; font-size: 20px; line-height: 1.25; letter-spacing: 3px; font-weight: 650; }
+.brand-en { display: block; font-size: 13px; letter-spacing: 2.4px; margin-top: 4px; color: var(--muted); }
+.site-nav { display: flex; align-items: center; gap: 24px; }
+.site-nav a { font-size: 17px; padding-block: 34px 31px; border-bottom: 3px solid transparent; transition: color .2s, border-color .2s; white-space: nowrap; }
+.site-nav a:hover, .site-nav a[aria-current="location"] { color: var(--teal); border-color: var(--teal); }
+.site-nav .nav-contact { border: 1px solid var(--line); padding: 8px 16px; }
+.site-nav .nav-contact:hover { border-color: var(--teal); }
+.menu-toggle { display: none; border: 1px solid var(--line); background: white; padding: 8px 12px; align-items: center; gap: 10px; min-height: 44px; }
+.menu-icon, .menu-icon::before, .menu-icon::after { display: block; width: 16px; height: 1px; background: var(--navy); }
+.menu-icon { position: relative; }
+.menu-icon::before, .menu-icon::after { content: ''; position: absolute; left: 0; }
+.menu-icon::before { top: -5px; }
+.menu-icon::after { top: 5px; }
+.hero { background: var(--wash); overflow: hidden; }
+.hero-grid { display: grid; grid-template-columns: 1fr 346px; align-items: center; gap: 74px; padding-block: 64px 62px; }
+.eyebrow { color: var(--teal); font-size: 13px; letter-spacing: 2.3px; text-transform: uppercase; font-weight: 650; margin: 0 0 23px; line-height: 1.5; }
+.hero .eyebrow { display: flex; align-items: center; gap: 12px; }
+.hero .eyebrow::before { content: ''; height: 1px; width: 28px; background: var(--teal); }
+.hero h1 { color: var(--navy); font-size: clamp(34px, 3.8vw, 51px); line-height: 1.43; letter-spacing: 1px; font-weight: 550; margin: 0 0 10px; }
+.hero-english { font: italic 25px/1.45 var(--serif); color: var(--teal); margin: 0 0 26px; }
+.hero-description { font-size: 18px; line-height: 1.95; max-width: 530px; color: #506671; margin: 0; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+.button { display: inline-flex; align-items: center; justify-content: space-between; gap: 32px; min-height: 46px; padding: 11px 21px; font-size: 16px; letter-spacing: .4px; border: 1px solid var(--navy); background: var(--navy); color: white; transition: background .2s, transform .2s; }
+.button:hover { background: var(--teal); border-color: var(--teal); transform: translateY(-2px); }
+.button-outline { background: transparent; color: var(--navy); border-color: #bacacd; }
+.button-outline:hover { color: white; }
+.arrow { font-size: 19px; line-height: 1; font-family: var(--sans); font-weight: 400; }
+.hero-portrait { position: relative; margin: 0 12px 0 0; }
+.hero-portrait::before { content: ''; position: absolute; inset: 18px -18px -18px 18px; border: 1px solid #b6cacc; }
+.hero-portrait img { position: relative; width: 100%; height: auto; aspect-ratio: 1.06; object-fit: cover; }
+.hero-portrait figcaption { position: relative; background: var(--navy); color: white; display: flex; justify-content: space-between; align-items: end; padding: 17px 22px; }
+.portrait-name { font-size: 23px; line-height: 1.3; letter-spacing: 5px; }
+.portrait-en { font: 15px var(--serif); letter-spacing: .5px; margin-top: 6px; }
+.portrait-degree { font: 13px var(--serif); color: #cadcde; padding-bottom: 3px; }
+.research-strip { border-top: 1px solid #d6e0e2; display: grid; grid-template-columns: repeat(3, 1fr); padding-block: 22px; gap: 22px; }
+.research-strip a { display: flex; align-items: center; gap: 15px; font-size: 16px; }
+.research-strip a:hover { color: var(--teal); }
+.strip-number { color: var(--teal); font: italic 19px var(--serif); }
+.strip-en { color: var(--muted); font-size: 14px; margin-left: 8px; }
+.section { padding-block: 72px; }
+.section-heading { display: flex; align-items: end; justify-content: space-between; gap: 25px; margin-bottom: 32px; }
+.section-heading .eyebrow { margin-bottom: 8px; }
+h2 { margin: 0; font-size: 32px; font-weight: 550; color: var(--navy); letter-spacing: 1.4px; line-height: 1.4; }
+.text-link { display: inline-flex; align-items: center; gap: 19px; color: var(--teal); font-size: 16px; padding-bottom: 4px; border-bottom: 1px solid #a8c1c0; }
+.text-link:hover { border-color: var(--navy); color: var(--navy); }
+.section-note { color: var(--muted); margin: 0; font-size: 16px; }
+.about { border-bottom: 1px solid var(--line); }
+.about-grid { display: grid; grid-template-columns: 220px 1fr; gap: 60px; }
+.about-grid .eyebrow { margin-bottom: 10px; }
+.about-copy p { margin: 0; line-height: 2.05; }
+.about-meta { display: flex; flex-wrap: wrap; gap: 12px 26px; margin-top: 22px; color: var(--muted); font-size: 16px; }
+.about-meta a { color: var(--teal); }
+.about-meta a:hover { text-decoration: underline; }
+.highlights-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.highlight { min-width: 0; display: flex; flex-direction: column; border: 1px solid var(--line); background: white; transition: transform .2s, border-color .2s; }
+.highlight:hover { transform: translateY(-4px); border-color: #7a9eaa; }
+.highlight-cover { position: relative; min-height: 135px; padding: 22px 25px; display: flex; justify-content: space-between; align-items: end; color: white; overflow: hidden; }
+.highlight-cover::after { content: ''; position: absolute; width: 170px; height: 170px; right: -15px; top: -63px; border: 1px solid rgb(255 255 255 / 24%); border-radius: 50%; box-shadow: 0 0 0 21px rgb(255 255 255 / 5%), 0 0 0 44px rgb(255 255 255 / 4%); }
+.cover-afm { background: #1c465c; }
+.cover-amt { background: #447676; }
+.cover-acs { background: #69776e; }
+.journal-initials { font: 47px/.95 var(--serif); letter-spacing: -1.5px; z-index: 1; }
+.cover-year { font-size: 14px; letter-spacing: 1.5px; z-index: 1; }
+.highlight-body { padding: 24px 25px 21px; display: flex; flex-direction: column; flex: 1; }
+.journal-name { font-size: 13px; letter-spacing: .3px; color: var(--teal); margin: 0 0 12px; font-weight: 600; }
+.highlight h3 { font-family: var(--serif); font-size: 22px; font-weight: 400; line-height: 1.55; color: var(--navy); margin: 0 0 15px; }
+.highlight-caption { color: var(--muted); font-size: 16px; margin: 0 0 25px; line-height: 1.8; }
+.highlight-foot { margin-top: auto; padding-top: 15px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; color: var(--teal); font-size: 14px; }
+.research-section { background: var(--navy-deep); color: #d5e0e4; }
+.research-section h2 { color: white; }
+.research-section .eyebrow { color: #a4c6c7; }
+.research-section .section-note { color: #b4c7ce; }
+.research-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.research-card { padding: 8px 34px 0; border-left: 1px solid #385362; }
+.research-card:first-child { border-left: none; padding-left: 0; }
+.research-card:last-child { padding-right: 0; }
+.research-index { display: flex; justify-content: space-between; align-items: center; color: #a9c9ca; font: italic 20px var(--serif); }
+.research-visual { width: 100%; height: 95px; margin-block: 15px 20px; opacity: .85; }
+.research-card h3 { color: white; font-weight: 500; font-size: 22px; margin: 0 0 10px; line-height: 1.5; }
+.research-en { color: #aac2ca; font: italic 14px var(--serif); margin: 0 0 18px; }
+.research-card p:last-child { font-size: 17px; line-height: 1.95; margin: 0; }
+.publications-toolbar { display: none; }
+.js .publications-toolbar { display: block; }
+.publication-controls { display: flex; gap: 12px; margin-bottom: 17px; }
+.search-field { position: relative; flex: 1; min-width: 0; }
+.search-field svg { position: absolute; left: 16px; top: 15px; color: var(--muted); width: 18px; height: 18px; pointer-events: none; }
+.search-field input { width: 100%; min-height: 48px; padding: 11px 16px 11px 44px; border: 1px solid var(--line); background: #f8faf9; color: var(--ink); font-size: 17px; }
+.year-select { min-width: 135px; padding: 10px 32px 10px 14px; border: 1px solid var(--line); background: white; color: var(--ink); font-size: 16px; }
+.filter-row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
+.filter-button { font-size: 16px; border: 1px solid var(--line); background: white; padding: 7px 15px; min-height: 40px; }
+.filter-button[aria-pressed="true"] { background: var(--navy); color: white; border-color: var(--navy); }
+.filter-button:hover { border-color: var(--teal); }
+.result-count { margin-left: auto; font-size: 14px; color: var(--muted); }
+.paper-list { list-style: none; margin: 0; padding: 0; counter-reset: papers; }
+.paper { display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 28px; padding: 30px 0; border-bottom: 1px solid var(--line); }
+.paper-year { color: var(--teal); font: 20px var(--serif); padding-top: 4px; }
+.paper h3 { margin: 0 0 11px; font-family: var(--serif); font-size: 22px; line-height: 1.6; color: var(--navy); font-weight: 500; }
+.paper-authors { color: var(--muted); font-size: 16px; margin: 0 0 8px; line-height: 1.85; }
+.paper-authors strong { color: var(--navy); font-weight: 650; }
+.paper-source { font-size: 16px; margin: 0; color: var(--teal); }
+.paper-source em { font-style: normal; font-weight: 650; }
+.paper-group { color: var(--muted); font-size: 13px; display: inline-block; border-left: 1px solid #b7c6cb; padding-left: 10px; margin-left: 10px; }
+.paper:target { background: #f0f6f4; box-shadow: -12px 0 #f0f6f4, 12px 0 #f0f6f4; }
+.empty-state { padding: 45px 20px; text-align: center; color: var(--muted); background: var(--wash); margin-top: 20px; }
+.reset-button { color: var(--teal); border: 0; border-bottom: 1px solid var(--teal); background: transparent; padding: 4px 0; }
+.publication-note { font-size: 14px; color: var(--muted); margin: 15px 0 0; }
+.news-section { background: var(--wash); }
+.news-list { border-top: 1px solid #cfddde; }
+.news-item { display: grid; grid-template-columns: 142px 1fr; gap: 28px; border-bottom: 1px solid #cfddde; padding: 23px 0; }
+.news-date { font: 19px var(--serif); color: var(--teal); display: block; margin-bottom: 4px; }
+.news-location { font-size: 13px; color: var(--muted); }
+.news-text { font-size: 17px; line-height: 1.95; }
+.news-text strong { font-weight: 550; color: var(--navy); }
+.news-text em { color: var(--teal); }
+.news-archive { margin-top: 22px; }
+.news-archive > summary { font-size: 16px; color: var(--teal); width: fit-content; padding-block: 7px; }
+.news-archive .news-list { margin-top: 14px; }
+.experience-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 68px; }
+.experience-heading { color: var(--navy); font-size: 22px; font-weight: 550; margin: 0 0 26px; display: flex; gap: 16px; align-items: baseline; }
+.experience-heading span { font: italic 14px var(--serif); color: var(--muted); }
+.timeline { border-left: 1px solid #cbd9dc; margin-left: 4px; }
+.timeline-item { position: relative; padding: 0 0 30px 25px; }
+.timeline-item:last-child { padding-bottom: 0; }
+.timeline-item::before { content: ''; position: absolute; top: 7px; left: -4px; width: 7px; height: 7px; background: var(--teal); }
+.timeline-date { font-size: 14px; color: var(--teal); margin: 0 0 6px; letter-spacing: .5px; }
+.timeline-title { font-size: 20px; margin: 0 0 6px; font-weight: 550; }
+.timeline-text { font-size: 16px; color: var(--muted); line-height: 1.95; margin: 0; }
+.supporting-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 68px; padding-top: 40px; margin-top: 42px; border-top: 1px solid var(--line); }
+.supporting-grid ul { margin: 0; padding-left: 16px; color: var(--muted); font-size: 16px; }
+.supporting-grid li { margin-bottom: 7px; padding-left: 4px; }
+.contact-section { background: var(--navy); color: #c8d8df; padding-block: 49px; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 45px; align-items: center; }
+.contact-section .eyebrow { color: #aac8c9; margin-bottom: 9px; }
+.contact-section h2 { color: white; font-size: 28px; margin: 0; }
+.contact-section p { font-size: 16px; margin: 13px 0 0; }
+.contact-email { display: flex; justify-content: space-between; gap: 15px; align-items: center; color: white; font: 25px var(--serif); padding-bottom: 16px; border-bottom: 1px solid #527080; overflow-wrap: anywhere; }
+.contact-email:hover { color: #bbdfd8; }
+.contact-details { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 14px; margin-top: 18px; }
+.contact-details a:hover { color: white; text-decoration: underline; }
+.site-footer { background: var(--navy-deep); color: #afc4cd; padding-block: 20px; font-size: 13px; letter-spacing: .4px; }
+.footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+.site-footer a { color: #d6e3e7; }
+.site-footer a:hover { color: white; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+@media (min-width: 1450px) {
+  .hero-grid { padding-block: 76px 74px; }
 }
-
-nav a {
-  font-size: 18px;   /* 导航字体变大 */
-  color: #444;
-  text-decoration: none;
+@media (max-width: 1100px) {
+  .wrap { width: calc(100% - 64px); }
+  .site-nav { gap: 20px; }
+  .hero-grid { grid-template-columns: 1fr 290px; gap: 40px; }
+  .hero h1 { font-size: 40px; }
+  .hero-english { font-size: 21px; }
+  .strip-en { display: none; }
+  .about-grid { grid-template-columns: 180px 1fr; gap: 35px; }
+  .highlight-body { padding: 20px; }
+  .highlight h3 { font-size: 22px; }
+  .experience-grid, .supporting-grid { gap: 40px; }
 }
-
-nav a:hover {
-  color: #003366;
-}
-
-/* 两栏布局：左侧固定栏 + 右侧主内容 */
-.container {
-  display: grid;
-  grid-template-columns: 300px 1fr;
-}
-
-/* 左侧个人信息栏（滚动不动） */
-.sidebar {
-  position: sticky;
-  top: 70px; /* 给导航栏留高度 */
-  align-self: start;
-  height: calc(100vh - 70px);
-  padding: 30px 24px;
-  background: #ffffff;
-  box-shadow: 4px 0 14px rgba(0, 0, 0, 0.08);
-}
-
-.sidebar img {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  object-fit: cover;
-  display: block;
-  margin: 0 0 20px 0; /* 靠左 */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-
-.sidebar-name {
-  font-size: 24px;
-  font-weight: 700;
-  margin-bottom: 14px;
-  text-align: left;   /* 靠左对齐 */
-}
-
-/* 左侧：图标+文字靠左对齐 */
-.sidebar-line {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start; /* 靠左 */
-  gap: 10px;
-  margin: 10px 0;
-  font-size: 16px;
-  text-align: left;
-}
-
-.sidebar-line img {
-  width: 22px;
-  height: 22px;
-  flex-shrink: 0;
-  opacity: 0.9;
-}
-
-/* 右侧主内容 */
-.main {
-  padding: 30px 40px 40px;
-}
-
-/* 每个 section 的滚动偏移，避免被顶部导航挡住 */
-section {
-  scroll-margin-top: 80px;
-  margin-bottom: 10px;
-}
-
-/* 标题（带图标） */
-.section-title {
-  font-size: 26px;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin: 25px 0 18px;
-}
-
-.section-title img {
-  width: 24px;
-  height: 24px;
-}
-
-/* 关于我简介块 */
-.about-text {
-  font-size: 17px;
-  line-height: 1.5;
-  background:#fff;
-  padding:18px 20px;
-  border-radius:10px;
-  box-shadow:0 4px 10px rgba(0,0,0,0.05);
-}
-
-/* 新闻 / 工作 / 教育：统一卡片结构 + 不同颜色 */
-.news-block,
-.work-block,
-.edu-block {
-  padding: 16px 18px;
-  background: #fff;
-  border-radius: 10px;
-  margin-bottom: 18px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-}
-
-/* 左边色条 */
-.news-block  { border-left: 6px solid var(--news-color); }
-.work-block  { border-left: 6px solid var(--work-color); }
-.edu-block   { border-left: 6px solid var(--edu-color); }
-
-.news-date,
-.work-date,
-.edu-date {
-  font-weight: 600;
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-/* 修复图标过大的问题 */
-.news-date img,
-.work-date img,
-.edu-date img {
-  width: 26px !important;
-  height: 26px !important;
-  flex-shrink: 0;
-}
-
-.news-loc,
-.work-loc,
-.edu-loc {
-  margin: 4px 0 8px;
-  font-weight: 500;
-  font-size: 15px;
-}
-
-.news-text,
-.work-text,
-.edu-text {
-  font-size: 16px;
-  line-height: 1.7;
-}
-
-/* 教育经历字体加大已包含在 edu-text 中 */
-
-/* 研究方向：三块卡片，左中右展示 */
-.research-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-}
-
-.research-card {
-  background: #fff;
-  padding: 16px 18px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-}
-
-.research-card-title {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-
-/* 发表文章及专利 / 研究基金 / 荣誉奖励：通用盒子样式 */
-.paper-box {
-  background:#fff;
-  padding:18px 20px;
-  margin-bottom:18px;
-  border-radius:10px;
-  box-shadow:0 4px 10px rgba(0,0,0,0.05);
-}
-
-.paper-box h3 {
-  margin-top:0;
-  font-size:20px;
-}
-
-.paper-box ul {
-  padding-left: 20px;
-  margin: 0;
-}
-
-.paper-box li {
-  margin-bottom:8px;
-  font-size:15px;
-}
-
-/* 荣誉奖励块复用 paper-box 风格 */
-.honor-box {
-  background:#fff;
-  padding:18px 20px;
-  border-radius:10px;
-  box-shadow:0 4px 10px rgba(0,0,0,0.05);
-}
-
-/* 页脚 */
-footer {
-  text-align:center;
-  margin:30px 0 15px;
-  color:#777;
-  font-size: 14px;
-}
-
-/* 简单响应式：屏幕窄时改为上下布局 */
 @media (max-width: 960px) {
-  .container {
-    grid-template-columns: 1fr;
-  }
-  .sidebar {
-    position: static;
-    height: auto;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-  }
-  nav {
-    justify-content: flex-start;
-    overflow-x: auto;
-  }
+  html { scroll-padding-top: 90px; }
+  .wrap { width: calc(100% - 44px); }
+  .header-inner { min-height: 76px; }
+  .brand-monogram { width: 38px; height: 38px; font-size: 20px; }
+  .brand-name { font-size: 18px; }
+  .brand-en { font-size: 13px; }
+  .site-nav { gap: 13px; flex-wrap: wrap; justify-content: flex-end; }
+  .site-nav a { padding-block: 9px; font-size: 16px; }
+  .js .menu-toggle { display: inline-flex; }
+  .js .site-nav { display: none; position: absolute; top: 76px; left: 0; right: 0; background: white; padding: 20px 24px 30px; max-height: calc(100dvh - 76px); overflow: auto; box-shadow: 0 16px 20px rgb(14 43 61 / 8%); }
+  .js .site-nav.is-open { display: flex; flex-direction: column; align-items: stretch; gap: 0; }
+  .js .site-nav a { padding: 14px 3px; border-bottom: 1px solid var(--line); font-size: 18px; }
+  .js .site-nav .nav-contact { border: 0; border-bottom: 1px solid var(--line); }
+  .hero-grid { grid-template-columns: 1fr 228px; gap: 30px; padding-block: 45px 50px; }
+  .hero h1 { font-size: 32px; }
+  .hero-english { font-size: 18px; }
+  .hero-description { font-size: 17px; }
+  .hero .eyebrow { font-size: 13px; letter-spacing: 1.1px; }
+  .hero-actions { gap: 10px; margin-top: 24px; }
+  .button { padding: 10px 15px; gap: 15px; font-size: 16px; }
+  .hero-portrait figcaption { padding: 14px 17px; }
+  .portrait-name { font-size: 21px; }
+  .portrait-en { font-size: 17px; }
+  .portrait-degree { font-size: 14px; }
+  .research-strip { gap: 12px; }
+  .research-strip a { gap: 10px; font-size: 16px; }
+  .section { padding-block: 52px; }
+  h2 { font-size: 28px; }
+  .about-grid { grid-template-columns: 140px 1fr; gap: 25px; }
+  .about-copy { font-size: 17px; }
+  .highlights-grid { grid-template-columns: 1fr; gap: 20px; }
+  .highlight { display: grid; grid-template-columns: 160px minmax(0, 1fr); }
+  .highlight-cover { min-height: 110px; padding: 20px 17px; }
+  .journal-initials { font-size: 37px; }
+  .highlight-body { padding: 18px 15px; }
+  .highlight h3 { font-size: 22px; }
+  .highlight-caption { font-size: 16px; }
+  .research-card { padding-inline: 22px; }
+  .research-card h3 { font-size: 22px; }
+  .research-en { font-size: 16px; }
+  .research-card p:last-child { font-size: 16px; }
+  .research-visual { height: 75px; }
+  .contact-email { font-size: 21px; }
 }
-</style>
+@media (max-width: 600px) {
+  body { font-size: 17px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 38px; padding-top: 36px; }
+  .hero .eyebrow { font-size: 13px; margin-bottom: 19px; }
+  .hero h1 { font-size: clamp(32px, 8.4vw, 43px); line-height: 1.45; }
+  .hero-english { font-size: 21px; margin-bottom: 22px; }
+  .hero-description { max-width: none; font-size: 17px; }
+  .hero-actions .button { min-height: 47px; padding-inline: 18px; font-size: 16px; gap: 23px; }
+  .hero-portrait { width: min(310px, calc(100% - 18px)); margin: 0 auto 0 0; }
+  .hero-portrait img { aspect-ratio: 1.2; }
+  .hero-portrait figcaption { padding: 14px 20px; }
+  .research-strip { padding-block: 19px; grid-template-columns: 1fr; gap: 12px; }
+  .research-strip a { font-size: 16px; }
+  .strip-number { font-size: 16px; }
+  .strip-en { display: inline; font-size: 13px; }
+  .section { padding-block: 44px; }
+  .section-heading { align-items: start; flex-wrap: wrap; gap: 14px; margin-bottom: 24px; }
+  .section-heading .text-link { margin-top: 0; align-self: end; font-size: 14px; gap: 8px; white-space: nowrap; }
+  .section-heading .section-note { display: none; }
+  .eyebrow { font-size: 13px; letter-spacing: 1.8px; }
+  h2 { font-size: 28px; }
+  .about-grid { grid-template-columns: 1fr; gap: 22px; }
+  .about-copy { font-size: 17px; }
+  .about-meta { font-size: 14px; gap: 9px 18px; }
+  .highlights-grid { grid-template-columns: 1fr; gap: 20px; }
+  .highlight { display: flex; }
+  .highlight-cover { min-height: 110px; padding: 23px; }
+  .journal-initials { font-size: 43px; }
+  .highlight-body { padding: 22px; }
+  .highlight h3 { font-size: 22px; }
+  .highlight-caption { font-size: 16px; margin-bottom: 21px; }
+  .research-grid { grid-template-columns: 1fr; }
+  .research-card, .research-card:first-child, .research-card:last-child { padding: 26px 0; border-left: none; border-bottom: 1px solid #385362; }
+  .research-card:first-child { padding-top: 5px; }
+  .research-card:last-child { padding-bottom: 0; border-bottom: none; }
+  .research-card h3 { font-size: 22px; }
+  .research-en { font-size: 17px; }
+  .research-card p:last-child { font-size: 17px; }
+  .research-visual { height: 90px; margin-block: 5px 12px; }
+  .publication-controls { display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .search-field input { font-size: 16px; padding-left: 37px; padding-right: 8px; }
+  .search-field svg { left: 12px; }
+  .year-select { min-width: 0; width: 100%; min-height: 48px; padding-inline: 12px; }
+  .filter-button { font-size: 16px; padding-inline: 12px; }
+  .result-count { margin-left: 0; width: 100%; padding-top: 6px; }
+  .paper { grid-template-columns: 1fr; gap: 10px; padding-block: 28px; }
+  .paper-year { font-size: 16px; }
+  .paper h3 { font-size: 22px; overflow-wrap: anywhere; }
+  .paper-authors, .paper-source { font-size: 16px; }
+  .paper-group { display: block; border: none; padding-left: 0; margin: 7px 0 0; }
+  .news-item { grid-template-columns: 1fr; gap: 9px; padding-block: 22px; }
+  .news-item > div:first-child { display: flex; align-items: center; justify-content: space-between; }
+  .news-date { margin-bottom: 0; font-size: 18px; }
+  .news-text { font-size: 17px; }
+  .experience-grid, .supporting-grid { grid-template-columns: 1fr; gap: 32px; }
+  .supporting-grid { margin-top: 32px; padding-top: 32px; }
+  .experience-heading { margin-bottom: 22px; }
+  .timeline-text, .supporting-grid ul { font-size: 17px; }
+  .contact-section { padding-block: 38px; }
+  .contact-grid { grid-template-columns: 1fr; gap: 27px; }
+  .contact-email { font-size: 22px; }
+  .contact-details { font-size: 14px; }
+  .footer-inner { align-items: start; font-size: 13px; gap: 18px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+  .button:hover, .highlight:hover { transform: none; }
+}
+@media print {
+  .site-header { position: static; }
+  .site-nav, .menu-toggle, .hero-actions, .publications-toolbar, .highlight-foot, .skip-link { display: none !important; }
+  body { color: black; font-size: 11pt; }
+  .wrap { width: 100%; }
+  .section { padding-block: 24px; }
+  .paper, .timeline-item, .highlight { break-inside: avoid; }
+  .research-section, .contact-section, .site-footer { color: #233841; background: #edf2f2; }
+  .research-section h2, .research-card h3, .contact-section h2, .contact-email { color: #14384d; }
+  .research-section .eyebrow, .research-en, .research-section .section-note, .contact-section .eyebrow { color: #506671; }
+}
+
+  </style>
 </head>
 <body>
-
-<!-- 顶部导航栏 -->
-<nav>
-  <a href="#about">关于我</a>
-  <a href="#news">新闻</a>
-  <a href="#work">工作经历</a>
-  <a href="#edu">教育经历</a>
-  <a href="#research">研究方向</a>
-  <a href="#papers">发表文章及专利</a>
-  <a href="#funds">研究基金</a>
-  <a href="#honors">荣誉奖励</a>
-</nav>
-
-<div class="container">
-
-  <!-- 左侧固定信息栏 -->
-  <aside class="sidebar">
-    <img src="personal-photo.png" alt="雷铭照片">
-
-    <div class="sidebar-name">    雷铭，博士</div>
-
-    <div class="sidebar-line">
-      <img src="https://cdn-icons-png.flaticon.com/512/535/535239.png" alt="">
-      <span>中国沈阳</span>
-    </div>
-
-    <div class="sidebar-line">
-      <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="">
-      <a href="mailto:leiming@mail.neu.edu.cn">leiming@mail.neu.edu.cn</a>
-    </div>
-
-    <div class="sidebar-line">
-      <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="">
-      <span>+86 17824032205</span>
-    </div>
-
-    <div class="sidebar-line">
-      <img src="https://cdn-icons-png.flaticon.com/512/300/300221.png" alt="">
-      <a href="https://scholar.google.com.hk/citations?user=L6gSsJYAAAAJ&hl=zh-CN" target="_blank">
-        Google Scholar
+  <a class="skip-link" href="#main">跳转到主要内容</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#home" aria-label="雷铭 Ming Lei，返回首页">
+        <span class="brand-monogram" aria-hidden="true">LM</span><span><span class="brand-name">雷铭</span><span class="brand-en" lang="en">MING LEI · Ph.D.</span></span>
       </a>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="打开导航菜单"><span class="menu-icon" aria-hidden="true"></span><span>菜单</span></button>
+      <nav class="site-nav" id="site-nav" aria-label="主导航">
+        <a href="#home" aria-current="location">首页</a><a href="#research">研究方向</a><a href="#papers">论文与专利</a><a href="#news">新闻动态</a><a href="#experience">学术经历</a><a href="#contact" class="nav-contact">联系我 <span aria-hidden="true">↗</span></a>
+      </nav>
     </div>
-  </aside>
-
-  <!-- 右侧主体内容 -->
-  <main class="main">
-
-    <!-- 关于我 -->
-    <section id="about">
-      <h2 class="section-title">
-        <img src="https://cdn-icons-png.flaticon.com/512/3448/3448339.png" alt="">
-        关于我
-      </h2>
-
-      <div class="about-text">
-        本人目前在东北大学信息科学与工程学院从事博士后研究工作（合作导师：张亚男教授）。研究方向包括可穿戴柔性压力传感器、磁性人机交互器件及基于光纤结构的频率检测。主要围绕微结构设计提升压力传感器的线性度与灵敏度，并利用光纤结构监测柔性材料本征频率变化，实现高精度的人机交互。
-      </div>
-    </section>
-
-    <!-- 新闻 -->
-    <section id="news">
-      <h2 class="section-title">
-        <img src="https://cdn-icons-png.flaticon.com/512/9068/9068649.png" alt="">
-        新闻
-      </h2>
-
-      <div class="news-block">
-        <div class="news-date">
-          <img src="https://cdn-icons-png.flaticon.com/512/747/747310.png" alt="">
-          2026/1/12
-        </div>
-        <div class="news-loc">沈阳，中国</div>
-        <div class="news-text">
-          成为可穿戴期刊 <strong> <em>Smart Wearable Technology </em> </strong> 审稿人，欢迎大家踊跃投稿。
-        </div>
-      </div> 
-      
-      <div class="news-block">
-        <div class="news-date">
-          <img src="https://cdn-icons-png.flaticon.com/512/747/747310.png" alt="">
-          2025/12/24
-        </div>
-        <div class="news-loc">澳门，中国</div>
-        <div class="news-text">
-          首次指导研究生，研究工作 <strong>“Gourd-Inspired Design of Unit Cell with Multiple Gradients for Physiological-Range Pressure Sensing, ”</strong>
-          被期刊 <em> Advanced Functional Materials </em> 接收。<strong>感谢两位导师：东北大学赵勇教授，澳门大学周冰朴副教授对工作的悉心指导和大力支持。</strong>
-        </div>
-      </div> 
-      
-
-      <div class="news-block">
-        <div class="news-date">
-          <img src="https://cdn-icons-png.flaticon.com/512/747/747310.png" alt="">
-          2025/11/02
-        </div>
-        <div class="news-loc">上海，中国</div>
-        <div class="news-text">
-          受邀参加 ICAFPM2025 并作 <strong>“基于碳基微结构的传感器优化”</strong> 报告。
-        </div>
-      </div>
-
-      <div class="news-block">
-        <div class="news-date">
-          <img src="https://cdn-icons-png.flaticon.com/512/747/747310.png" alt="">
-          2025/09/24
-        </div>
-        <div class="news-loc">澳门，中国</div>
-        <div class="news-text">
-          研究工作 <strong>“Dual-sided micro-cilia arrays for wearable pressure sensing”</strong>
-          被期刊 <em>Nanoscale</em> 接收。
-        </div>
-      </div>
-
-      <div class="news-block">
-        <div class="news-date">
-          <img src="https://cdn-icons-png.flaticon.com/512/747/747310.png" alt="">
-          2025/09/02
-        </div>
-        <div class="news-loc">澳门，中国</div>
-        <div class="news-text">
-          研究工作 <strong>“Engineered Modulus Gradient for Wide-range Linear Capacitive Pressure Transduction”</strong>
-          被期刊 <em>Advanced Materials Technologies</em> 接收。
-        </div>
-      </div>
-
-      <div class="news-block">
-        <div class="news-date">
-          <img src="https://cdn-icons-png.flaticon.com/512/747/747310.png" alt="">
-          2024/07/30
-        </div>
-        <div class="news-loc">澳门，中国</div>
-        <div class="news-text">
-          受邀参加 2024 Joint Annual Conference of Physical Societies in Guangdong-Hong Kong-Macao Greater Bay Area，并作题为
-          <strong>“Multifunctional E-Skin based on Non-overlapping Mode for Information Expansion.”</strong>
-          的报告。
-        </div>
-      </div>
-
-      <div class="news-block">
-        <div class="news-date">
-          <img src="https://cdn-icons-png.flaticon.com/512/747/747310.png" alt="">
-          2024/05/21
-        </div>
-        <div class="news-loc">澳门，中国</div>
-        <div class="news-text">
-          <strong>顺利完成博士答辩！</strong>
-        </div>
-      </div>
-
-      <div class="news-block">
-        <div class="news-date">
-          <img src="https://cdn-icons-png.flaticon.com/512/747/747310.png" alt="">
-          2024/04/19
-        </div>
-        <div class="news-loc">重庆，中国</div>
-        <div class="news-text">
-          受邀参加 2024 全国柔性电子技术与先进材料器件研讨会，并作题为
-          <strong>“Optimization of Bidirectional Bending Sensor as Flexible Ternary Terminal for High-capacity Human-machine Interaction.”</strong>
-          的报告。
-        </div>
-      </div>
-
-      <div class="news-block">
-        <div class="news-date">
-          <img src="https://cdn-icons-png.flaticon.com/512/747/747310.png" alt="">
-          2023/10/22
-        </div>
-        <div class="news-loc">上海，中国</div>
-        <div class="news-text">
-          受邀参加 ICAFPM 2023，并作题为
-          <strong>“Bidirectional Bending Sensor for High-capacity Human-machine Interaction.”</strong>
-          的报告。
-        </div>
-      </div>
-    </section>
-
-    <!-- 工作经历 -->
-    <section id="work">
-      <h2 class="section-title">
-        <img src="https://cdn-icons-png.flaticon.com/512/3170/3170733.png" alt="">
-        工作经历
-      </h2>
-
-      <div class="work-block">
-        <div class="work-date">
-          <img src="https://cdn-icons-png.flaticon.com/512/747/747310.png" alt="">
-          2024/10 – 至今
-        </div>
-        <div class="work-loc">澳门大学</div>
-        <div class="work-text">
-          博士后研究员，从事柔性压力传感器、磁性人机交互器件及光纤频率检测相关研究。
-        </div>
-      </div>
-
-      <div class="work-block">
-        <div class="work-date">
-          <img src="https://cdn-icons-png.flaticon.com/512/747/747310.png" alt="">
-          2024/06 – 2024/10
-        </div>
-        <div class="work-loc">澳门大学</div>
-        <div class="work-text">
-          研究助理，参与柔性压力传感器设计等工作。
-        </div>
-      </div>
-    </section>
-
-    <!-- 教育经历 -->
-    <section id="edu">
-      <h2 class="section-title">
-        <img src="https://cdn-icons-png.flaticon.com/512/2942/2942176.png" alt="">
-        教育经历
-      </h2>
-
-      <div class="edu-block">
-        <div class="edu-date">
-          <img src="https://cdn-icons-png.flaticon.com/512/747/747310.png" alt="">
-          2020/08 – 2024/06
-        </div>
-        <div class="edu-loc">澳门大学</div>
-        <div class="edu-text">
-          哲学博士 · 应用物理及材料工程专业 · 导师：周冰朴副教授 · 柔性电子与智能界面实验室。
-        </div>
-      </div>
-
-      <div class="edu-block">
-        <div class="edu-date">
-          <img src="https://cdn-icons-png.flaticon.com/512/747/747310.png" alt="">
-          2016/09 – 2018/01
-        </div>
-        <div class="edu-loc">东北大学</div>
-        <div class="edu-text">
-          工学硕士 · 检测技术与自动化装置 · 导师：赵勇教授（长江学者，国家杰青，东北大学秦皇岛分校校长）。
-        </div>
-      </div>
-
-      <div class="edu-block">
-        <div class="edu-date">
-          <img src="https://cdn-icons-png.flaticon.com/512/747/747310.png" alt="">
-          2012/09 – 2016/07
-        </div>
-        <div class="edu-loc">哈尔滨理工大学</div>
-        <div class="edu-text">
-          工学学士 · 测控技术与仪器 · 导师：盖建新教授（测控技术与通信工程院副院长）。
-        </div>
-      </div>
-    </section>
-
-    <!-- 研究方向：三块并排 -->
-    <section id="research">
-      <h2 class="section-title">
-        <img src="https://cdn-icons-png.flaticon.com/512/2920/2920403.png" alt="">
-        研究方向
-      </h2>
-
-      <div class="research-grid">
-        <div class="research-card">
-          <div class="research-card-title">柔性压力传感器</div>
-          <div class="research-card-text">
-            通过微结构设计实现电容/电阻型柔性压力传感器的线性度与灵敏度协同优化，用于可穿戴监测与人机交互。
+  </header>
+  <main id="main">
+    <section class="hero" id="home" data-nav-section="home" aria-labelledby="hero-title">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow" lang="en">Ming Lei / Academic website</p>
+            <h1 id="hero-title">柔性传感与<br>智能人机交互</h1>
+            <p class="hero-english" lang="en">Flexible sensing. Intelligent interfaces.</p>
+            <p class="hero-description">围绕柔性材料与微结构设计，研究压力感知、磁性人机交互及光纤频率检测，探索可穿戴器件中的力学响应与信号读出。</p>
+            <div class="hero-actions"><a class="button" href="#research">探索研究方向 <span class="arrow" aria-hidden="true">↗</span></a><a class="button button-outline" href="#papers">查看发表论文 <span class="arrow" aria-hidden="true">→</span></a></div>
           </div>
+          <figure class="hero-portrait"><img src="personal-photo.png" width="1024" height="1024" alt="雷铭博士" fetchpriority="high"><figcaption><div><div class="portrait-name">雷铭</div><div class="portrait-en" lang="en">Ming Lei</div></div><span class="portrait-degree" lang="en">Ph.D.</span></figcaption></figure>
         </div>
-
-        <div class="research-card">
-          <div class="research-card-title">磁性人机交互器件</div>
-          <div class="research-card-text">
-            设计柔性磁性结构与磁响应单元，构建兼具稳定性与高灵敏度的磁性人机交互界面。
-          </div>
-        </div>
-
-        <div class="research-card">
-          <div class="research-card-title">基于光纤结构的频率检测</div>
-          <div class="research-card-text">
-            将光纤结构耦合于柔性材料，利用本征频率变化实现状态识别与高精度人机交互。
-          </div>
+        <div class="research-strip" aria-label="研究主题">
+          <a href="#research-1"><span class="strip-number">01</span><span>柔性压力传感<span class="strip-en" lang="en">Flexible sensing</span></span></a>
+          <a href="#research-2"><span class="strip-number">02</span><span>磁性人机交互<span class="strip-en" lang="en">Magnetic interfaces</span></span></a>
+          <a href="#research-3"><span class="strip-number">03</span><span>光纤频率检测<span class="strip-en" lang="en">Optical fiber sensing</span></span></a>
         </div>
       </div>
     </section>
-
-    <!-- 发表文章及专利 -->
-    <section id="papers">
-      <h2 class="section-title">
-        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135675.png" alt="">
-        发表文章及专利
-      </h2>
-
-      <div class="paper-box">
-        <h3>一作及通讯作者文章</h3>
-        <ul>
-
-
-          <li>Yifan Liu, Zheming Zhang, Xiao Xu, Fengming Hu, Ruolin Liu, Rongmei Wang,<strong>Ming Lei†*</strong> , Ziyi Dai,* and Bingpu Zhou,* 
-         Co-modulation of Overall Compressibility and Conductive Networks on Individual Sensing Unit for High-performance Flexible Tactile Sensors, , 
-          <em>Chemical Engineering Journal  </em>, 2026.</li>
-
-          <li>Jiayi XU†, <strong>Ming Lei†*</strong>, Yuanzhe Liang, Biao Qi, Ziyi Dai, Yong Zhao,* and Bingpu Zhou,* 
-          Gourd-Inspired Design of Unit Cell with Multiple Gradients for Physiological-Range Pressure Sensing, , 
-          <em>Advanced Functional Materials </em>, 2025, e27243.</li>
-          
-          <li><strong>Ming Lei</strong>, Biao Qi, Yuanzhe Liang, Ruolin Liu, Ziyi Dai, Bing Ji,* and Bingpu Zhou,* 
-          Double-Domed Dielectric Foam with Engineered Modulus Gradient for Wide-range Linear Capacitive Pressure Transduction, 
-          <em>Advanced Materials Technologies</em>, 2025, e01289.</li>
-
-          <li><strong>Ming Lei</strong>, Bingpu Zhou,* 
-          Cactus-inspired dual-sided micro-cilia arrays with swelling-induced CNT networks for high-performance wearable pressure sensing, 
-          <em>Nanoscale</em>, 2025.</li>
-
-          <li>Runxing Lin†, <strong>Ming Lei</strong>†, Sen Ding, Quansheng Cheng, Zhichao Ma, Liping Wang, Zikang Tang, Bingpu Zhou,* and Yinning Zhou,*  
-          Applications of Flexible Electronics related to cardiocerebral vascular system, 
-          <em>Materials Today Bio</em>, 2023, 23, 100787.</li>
-
-          <li><strong>Ming Lei</strong>, Bing Ji, Sen Ding, Ruolin Liu, and Bingpu Zhou,*  
-          Template-free formation of hybrid dielectric for flexible capacitive sensors with wide-pressure-range linear detection, 
-          <em>Advanced Materials Technologies</em>, 2023, 8, 2301077. (AdvancedScience News)</li>
-
-          <li><strong>Ming Lei</strong>, Kai Feng, Sen Ding, Mingrui Wang, Ziyi Dai, Ruolin Liu, Yibo Gao, Yinning Zhou, Qingsong Xu,* and Bingpu Zhou,*  
-          Breathable and waterproof electronic skin with three-dimensional architecture for pressure and strain sensing in non-overlapping mode, 
-          <em>ACS Nano</em>, 2022, 16 (8), 12620–12634. (Reported by Polymer.cn)</li>
-
-          <li>Yong Zhao, <strong>Ming Lei</strong>, S. X. Liu, et al.  
-          Smart hydrogel-based optical fiber SPR sensor for pH measurements, 
-          <em>Sensors and Actuators B: Chemical</em>, 2018, 226–232.</li>         
-
-          <li><strong>Ming Lei</strong>, Y. N. Zhang, A. Z. Zhang, et al.  
-          In-line Mach-Zehnder interferometer and FBG with smart hydrogel for simultaneous pH and temperature detection, 
-          <em>IEEE Sensors Journal</em>, 2018, 7499–7504.</li>
-        </ul>
-      </div>
-
-      <div class="paper-box">
-        <h3>主要作者文章</h3>
-        <ul>
-
-          <li>Yuanzhe Liang, <strong>Ming Lei</strong>, Biao Qi, Yingyi Zhang, Ziyi Dai, Dan Fang, Jinbo Wu, Jianyi Luo, and Bingpu Zhou,*  
-          Magnetized Joystick with Dual-Anisotropy for High-Capacity Wearable Human-Machine Interactions, 
-          <em>Microsystems & Nanoengineering</em>, 2026.</li>
-
-          <li>Rongmei Wang, Ruolin Liu, <strong>Ming Lei</strong>,Yifan Liu, Fengming Hu, Bing Ji,* Chao Peng, Jianyi Luo, and Bingpu Zhou,* ﻿  
-          Flexible Pressure Sensor with Co-optimized Sensitivity and Linearity based on Gradient ﻿Toroidal Microstructures, 
-          <em>Advanced Materials Technologies </em>,2026, e71046.</li>
-          
-          
-          <li>Wenxue Dai, <strong>Ming Lei</strong>, Ziyi Dai, Sen Ding, Fangcheng Wang, Dan Fang, Rongmei Wang, Biao Qi, Guoping Zhang,* and Bingpu Zhou,*  
-          Self-Adhesive Electronic Skin with Bio-inspired 3D Architecture for Mechanical Stimuli Monitoring and Human-machine Interactions, 
-          <em>Small</em>, 202406564.</li>
-
-          <li>Biao Qi, Sen Ding, Yuanzhe Liang, Dan Fang, <strong>Ming Lei</strong>, Wenxue Dai, Chao Peng, and Bingpu Zhou,*  
-          Bio-inspired Magnetized String with Tension-dependent Eigenfrequencies for Wearable Human-machine Interactions, 
-          <em>ACS Applied Materials & Interfaces</em>, 2024, 16, 68465–68477.</li>
-
-          <li>Ruolin Liu, Bing Ji,* <strong>Ming Lei</strong>, Fengming Hu, Jianyi Luo and Bingpu Zhou,*  
-          Triple-gradient based dielectric layer for flexible capacitive sensor with broad sensing linearity and high sensitivity, 
-          <em>Applied Materials Today</em>, 2025, 42, 102614.</li>
-
-          <li>Yuanzhe Liang, Biao Qi, <strong>Ming Lei</strong>, Yingyi Zhang, Yifan Liu, Yinning Zhou, Jianyi Luo, and Bingpu Zhou,*  
-          Bionic Perception of Surface Adhesion via Magnetized Spring-like Sensor with Axial Stretchability, 
-          <em>ACS Nano</em>, 2025, 19, 25, 23465–23478.</li>
-
-          <li>Biao Qi, Yuanzhe Liang, Sen Ding, Dan Fang, <strong>Ming Lei</strong>, Qian Zhou,* Chao Peng, and Bingpu Zhou,*  
-          Maximizing Signal Capacity via Intrinsic Damped Vibration of Anisotropic Magnetized Micropillars for Wearable Human-Machine Interface, 
-          <em>Chemical Engineering Journal</em>, 2025, 521, 167133.</li>
-
-          <li>Ruolin Liu, Bing Ji,* <strong>Ming Lei</strong>, Fengming Hu, Jianyi Luo and Bingpu Zhou,*  
-          Triple-gradient based dielectric layer for flexible capacitive sensor with broad sensing linearity and high sensitivity, 
-          <em>Applied Materials Today</em>, 2025.</li>
-
-          <li>Ziyi Dai, <strong>Ming Lei</strong>, Sen Ding, Qian Zhou, Bing Ji, Mingrui Wang, and Bingpu Zhou,*  
-          Durable superhydrophobic surface in wearable sensors: from nature to application, 
-          <em>Exploration</em>, 2023. (News)</li>
-
-          <li>Kai Feng, <strong>Ming Lei</strong>, Xianli Wang, Bingpu Zhou, and Qingsong Xu,  
-          A Flexible Bidirectional Interface with Integrated Multimodal Sensing and Haptic Feedback for Closed‐Loop Human-Machine Interaction, 
-          <em>Advanced Intelligent Systems</em>, 2023, 2300291.</li>
-
-          <li>Sen Ding, Ziyi Dai, Ge Chen, <strong>Ming Lei</strong>, Qi Song, Yibo Gao, Yinning Zhou*, and Bingpu Zhou,*  
-          Regulation of Droplet Rebound Behavior with Contact Time Control on a Flexible and Superhydrophobic Film, 
-          <em>Langmuir</em>, 2022, 38, 9, 2942–2953.</li>
-
-          <li>Ge Chen,† Ziyi Dai,† Sen Ding, <strong>Ming Lei</strong>, Jing Lin, Shuangpeng Wang, Yinning Zhou, Hui Pan, and Bingpu Zhou,*  
-          Realization of Integrative Hierarchy by In-situ Solidification of ‘Semi-cured’ Microcilia Array in Candle Flame for Robust and Flexible Superhydrophobicity, 
-          <em>Chemical Engineering Journal</em>, 2022, 432, 134400.</li>
-
-          <li>Bing Ji,† Qian Zhou,† <strong>Ming Lei</strong>, Sen Ding, Qi Song, Yibo Gao, Shunbo Li, Yi Xu, Yinning Zhou,* and Bingpu Zhou,*  
-          Gradient Architecture-Enabled Capacitive Tactile Sensor with High Sensitivity and Ultrabroad Linearity Range, 
-          <em>Small</em>, 2021, 202103312.</li>
-
-          <li>Ziyi Dai, Sen Ding, <strong>Ming Lei</strong>, Shunbo Li, Yi Xu, Yinning Zhou,* and Bingpu Zhou,*  
-          Superhydrophobic and Anti-corrosion Strain Sensor for Robust Underwater Applications, 
-          <em>Journal of Materials Chemistry A</em>, 2021, 9, 15282–15293.</li>
-
-          <li>Zhang Y, <strong>Lei M</strong>, Hu H, et al.  
-          Determination of refractive index by a U-shaped multimode fiber sensor, 
-          <em>Instrumentation Science & Technology</em>, 2018.</li>
-
-          <li>Gao H., Hu H., Zhao Y., Li J., <strong>Lei M.</strong>, Zhang Y.  
-          Highly-sensitive optical fiber temperature sensors based on PDMS/silica hybrid fiber structures, 
-          <em>Sensors and Actuators A</em>, 2018.</li>
-        </ul>
-      </div>
-
-      <div class="paper-box">
-        <h3>专利</h3>
-        <ul>
-          <li>赵勇，<strong>雷铭</strong>，张勇，杨时月 等.  
-          一种基于光纤错位结构和 Sagnac 环的温度和折射率双参数传感装置.  
-          专利申请号：201810039338.6，2018.</li>
-
-          <li>赵勇，杨时月，<strong>雷铭</strong> 等.  
-          一种大范围光纤弯曲可调控装置.  
-          专利申请号：201810316652.4，2018.</li>
-
-          <li>赵勇，张勇，胡海峰，<strong>雷铭</strong> 等.  
-          一种基于无芯光纤径向大错位结构涂覆聚二甲基硅氧烷的点式温度传感装置.  
-          专利申请号：201810039992.7，2018.</li>
-        </ul>
-      </div>
+    <section class="section about wrap" id="about" aria-labelledby="about-title">
+      <div class="about-grid"><div><p class="eyebrow" lang="en">About me</p><h2 id="about-title">关于我</h2></div><div class="about-copy"><p>本人目前在东北大学信息科学与工程学院从事博士后研究工作（合作导师：张亚男教授）。研究方向包括可穿戴柔性压力传感器、磁性人机交互器件及基于光纤结构的频率检测。主要围绕微结构设计提升压力传感器的线性度与灵敏度，并利用光纤结构监测柔性材料本征频率变化，实现高精度的人机交互。</p><div class="about-meta"><span>中国 · 沈阳</span><a href="mailto:leiming@mail.neu.edu.cn">leiming@mail.neu.edu.cn</a><a href="https://scholar.google.com.hk/citations?user=L6gSsJYAAAAJ&amp;hl=zh-CN" target="_blank" rel="noopener noreferrer" lang="en">Google Scholar ↗<span class="visually-hidden">（新窗口打开）</span></a></div></div></div>
     </section>
-
-    <!-- 研究基金 -->
-    <section id="funds">
-      <h2 class="section-title">
-        <img src="https://cdn-icons-png.flaticon.com/512/1995/1995502.png" alt="">
-        研究基金
-      </h2>
-
-      <div class="paper-box">
-        <ul>
-          <li><strong>参与</strong> ·   
-教育部基本科研业务费重大科技创新项目：用于海洋关键参数智能感知的先进传感器技术研究· 2017–2019</li>
-        </ul>
-      </div>
+    <section class="section wrap" id="highlights" aria-labelledby="highlights-title">
+      <div class="section-heading"><div><p class="eyebrow" lang="en">Selected work</p><h2 id="highlights-title">代表成果</h2></div><a class="text-link" href="#papers">全部论文 <span class="arrow" aria-hidden="true">↗</span></a></div>
+      <div class="highlights-grid"><a class="highlight" href="#paper-02" data-paper-link>
+      <div class="highlight-cover cover-afm" aria-hidden="true"><span class="journal-initials">AFM</span><span class="cover-year">2025</span></div>
+      <div class="highlight-body"><p class="journal-name">Advanced Functional Materials · 2025</p>
+      <h3 lang="en">Gourd-Inspired Design of Unit Cell with Multiple Gradients for Physiological-Range Pressure Sensing</h3><p class="highlight-caption">葫芦形多梯度单元，用于生理压力范围内的柔性压力传感。</p>
+      <div class="highlight-foot"><span>查看论文信息</span><span class="arrow" aria-hidden="true">↗</span></div></div></a><a class="highlight" href="#paper-03" data-paper-link>
+      <div class="highlight-cover cover-amt" aria-hidden="true"><span class="journal-initials">AMT</span><span class="cover-year">2025</span></div>
+      <div class="highlight-body"><p class="journal-name">Advanced Materials Technologies · 2025</p>
+      <h3 lang="en">Double-Domed Dielectric Foam with Engineered Modulus Gradient for Wide-range Linear Capacitive Pressure Transduction</h3><p class="highlight-caption">双穹顶介电泡沫与模量梯度设计，实现宽量程线性电容压力检测。</p>
+      <div class="highlight-foot"><span>查看论文信息</span><span class="arrow" aria-hidden="true">↗</span></div></div></a><a class="highlight" href="#paper-07" data-paper-link>
+      <div class="highlight-cover cover-acs" aria-hidden="true"><span class="journal-initials">ACS</span><span class="cover-year">2022</span></div>
+      <div class="highlight-body"><p class="journal-name">ACS Nano · 2022</p>
+      <h3 lang="en">Breathable and waterproof electronic skin with three-dimensional architecture for pressure and strain sensing in non-overlapping mode</h3><p class="highlight-caption">兼具透气与防水性能的三维电子皮肤，分别感知压力和应变。</p>
+      <div class="highlight-foot"><span>查看论文信息</span><span class="arrow" aria-hidden="true">↗</span></div></div></a></div>
     </section>
-
-    <!-- 荣誉奖励 -->
-    <section id="honors">
-      <h2 class="section-title">
-        <img src="https://cdn-icons-png.flaticon.com/512/2583/2583343.png" alt="">
-        荣誉奖励
-      </h2>
-
-      <div class="honor-box">
-        <ul>
-          <li>2019 届 “校优秀研究生” 荣誉称号</li>
-          <li>2019 届 辽宁省普通高等学校优秀研究生</li>
-          <li>2018 年 硕士研究生国家奖学金</li>
-          <li>2018 年度 “卓越学人” 荣誉称号</li>
-          <li>2017–2018 年度 研究生一等学业奖学金</li>
-          <li>2016–2017 年度 研究生一等学业奖学金</li>
-          <li>2016–2017 年度 “优秀研究生” 荣誉称号</li>
-          <li>2016–2017 年度 “优秀共产党员” 荣誉称号</li>
-        </ul>
-      </div>
+    <section class="section research-section" id="research" data-nav-section="research" aria-labelledby="research-title">
+      <div class="wrap"><div class="section-heading"><div><p class="eyebrow" lang="en">Research interests</p><h2 id="research-title">研究方向</h2></div><p class="section-note">微结构设计 · 力学响应 · 信号感知</p></div><div class="research-grid"><article class="research-card" id="research-1"><div class="research-index"><span>01</span><span aria-hidden="true">↗</span></div>
+    <svg class="research-visual" viewBox="0 0 280 95" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" aria-hidden="true"><path d="M26 75h230M42 61h198M61 48h160"/><path d="M47 61q12-37 24 0m8 0q12-37 24 0m8 0q12-37 24 0m8 0q12-37 24 0m8 0q12-37 24 0m8 0q12-37 24 0"/><path d="M140 7v23m-5-5 5 5 5-5"/></svg>
+    <h3>柔性压力传感器</h3><p class="research-en" lang="en">Flexible pressure sensors</p><p>通过微结构设计实现电容/电阻型柔性压力传感器的线性度与灵敏度协同优化，用于可穿戴监测与人机交互。</p></article><article class="research-card" id="research-2"><div class="research-index"><span>02</span><span aria-hidden="true">↗</span></div>
+    <svg class="research-visual" viewBox="0 0 280 95" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" aria-hidden="true"><path d="M28 78h223M66 78Q78 44 62 17M121 78Q139 42 115 12M181 78Q209 38 176 17"/><path d="M35 25Q140-6 244 25M36 39Q140 10 244 39" stroke-dasharray="3 6"/><circle cx="62" cy="17" r="4"/><circle cx="115" cy="12" r="4"/><circle cx="176" cy="17" r="4"/></svg>
+    <h3>磁性人机交互器件</h3><p class="research-en" lang="en">Magnetic human–machine interfaces</p><p>设计柔性磁性结构与磁响应单元，构建兼具稳定性与高灵敏度的磁性人机交互界面。</p></article><article class="research-card" id="research-3"><div class="research-index"><span>03</span><span aria-hidden="true">↗</span></div>
+    <svg class="research-visual" viewBox="0 0 280 95" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" aria-hidden="true"><path d="M18 50h24q7-1 14-21t14 21q7 46 14 0t14 0q7 38 14 0t14 0q7 29 14 0t14 0q7 22 14 0t14 0q7 15 14 0t14 0q7 10 14 0t14 0h27"/><path d="M19 76h246M19 14v62" opacity=".3"/><path d="M20 50h246" stroke-dasharray="3 6" opacity=".4"/></svg>
+    <h3>光纤频率检测</h3><p class="research-en" lang="en">Optical fiber frequency sensing</p><p>将光纤结构耦合于柔性材料，利用本征频率变化实现状态识别与高精度人机交互。</p></article></div></div>
     </section>
-
-    <footer>
-      © <script>document.write(new Date().getFullYear())</script> 雷铭
-    </footer>
-
+    <section class="section wrap" id="papers" data-nav-section="papers" aria-labelledby="papers-title">
+      <div class="section-heading"><div><p class="eyebrow" lang="en">Publications &amp; patents</p><h2 id="papers-title">论文与专利</h2></div><a class="text-link" href="https://scholar.google.com.hk/citations?user=L6gSsJYAAAAJ&amp;hl=zh-CN" target="_blank" rel="noopener noreferrer">Google Scholar <span class="arrow" aria-hidden="true">↗</span><span class="visually-hidden">（新窗口打开）</span></a></div>
+      <div class="publications-toolbar">
+        <div class="publication-controls"><div class="search-field"><label class="visually-hidden" for="paper-search">搜索论文标题、作者或期刊</label><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="10" cy="10" r="6.5"/><path d="m15 15 6 6"/></svg><input id="paper-search" type="search" placeholder="搜索论文、作者或期刊…" autocomplete="off" aria-controls="paper-list"></div>
+        <label class="visually-hidden" for="paper-year">按年份筛选</label><select class="year-select" id="paper-year" aria-controls="paper-list"><option value="all">全部年份</option><option value="2026">2026</option><option value="2025">2025</option><option value="2024">2024</option><option value="2023">2023</option><option value="2022">2022</option><option value="2021">2021</option><option value="2018">2018</option><option value="未注明">年份未注明</option></select></div>
+        <div class="filter-row" role="group" aria-label="按成果类别筛选"><button class="filter-button" data-filter="all" aria-pressed="true" aria-controls="paper-list" type="button">全部成果</button><button class="filter-button" data-filter="lead" aria-pressed="false" aria-controls="paper-list" type="button">一作及通讯作者</button><button class="filter-button" data-filter="coauthor" aria-pressed="false" aria-controls="paper-list" type="button">主要作者</button><button class="filter-button" data-filter="patent" aria-pressed="false" aria-controls="paper-list" type="button">专利</button><span class="result-count" id="result-count" role="status" aria-live="polite"></span></div>
+      </div>
+      <ol class="paper-list" id="paper-list"><li class="paper" id="paper-01" data-category="lead" data-year="2026">
+      <div class="paper-year">2026</div><div><h3 lang="en">Co-modulation of Overall Compressibility and Conductive Networks on Individual Sensing Unit for High-performance Flexible Tactile Sensors</h3>
+      <p class="paper-authors" lang="en">Yifan Liu, Zheming Zhang, Xiao Xu, Fengming Hu, Ruolin Liu, Rongmei Wang,<strong>Ming Lei†*</strong> , Ziyi Dai,* and Bingpu Zhou,*</p>
+      <p class="paper-source"><em>Chemical Engineering Journal </em>, 2026.<span class="paper-group">一作及通讯作者</span></p></div></li><li class="paper" id="paper-02" data-category="lead" data-year="2025">
+      <div class="paper-year">2025</div><div><h3 lang="en">Gourd-Inspired Design of Unit Cell with Multiple Gradients for Physiological-Range Pressure Sensing</h3>
+      <p class="paper-authors" lang="en">Jiayi XU†, <strong>Ming Lei†*</strong>, Yuanzhe Liang, Biao Qi, Ziyi Dai, Yong Zhao,* and Bingpu Zhou,*</p>
+      <p class="paper-source"><em>Advanced Functional Materials </em>, 2025, e27243.<span class="paper-group">一作及通讯作者</span></p></div></li><li class="paper" id="paper-03" data-category="lead" data-year="2025">
+      <div class="paper-year">2025</div><div><h3 lang="en">Double-Domed Dielectric Foam with Engineered Modulus Gradient for Wide-range Linear Capacitive Pressure Transduction</h3>
+      <p class="paper-authors" lang="en"><strong>Ming Lei</strong>, Biao Qi, Yuanzhe Liang, Ruolin Liu, Ziyi Dai, Bing Ji,* and Bingpu Zhou,*</p>
+      <p class="paper-source"><em>Advanced Materials Technologies</em>, 2025, e01289.<span class="paper-group">一作及通讯作者</span></p></div></li><li class="paper" id="paper-04" data-category="lead" data-year="2025">
+      <div class="paper-year">2025</div><div><h3 lang="en">Cactus-inspired dual-sided micro-cilia arrays with swelling-induced CNT networks for high-performance wearable pressure sensing</h3>
+      <p class="paper-authors" lang="en"><strong>Ming Lei</strong>, Bingpu Zhou,*</p>
+      <p class="paper-source"><em>Nanoscale</em>, 2025.<span class="paper-group">一作及通讯作者</span></p></div></li><li class="paper" id="paper-05" data-category="lead" data-year="2023">
+      <div class="paper-year">2023</div><div><h3 lang="en">Applications of Flexible Electronics related to cardiocerebral vascular system</h3>
+      <p class="paper-authors" lang="en">Runxing Lin†, <strong>Ming Lei</strong>†, Sen Ding, Quansheng Cheng, Zhichao Ma, Liping Wang, Zikang Tang, Bingpu Zhou,* and Yinning Zhou,*</p>
+      <p class="paper-source"><em>Materials Today Bio</em>, 2023, 23, 100787.<span class="paper-group">一作及通讯作者</span></p></div></li><li class="paper" id="paper-06" data-category="lead" data-year="2023">
+      <div class="paper-year">2023</div><div><h3 lang="en">Template-free formation of hybrid dielectric for flexible capacitive sensors with wide-pressure-range linear detection</h3>
+      <p class="paper-authors" lang="en"><strong>Ming Lei</strong>, Bing Ji, Sen Ding, Ruolin Liu, and Bingpu Zhou,*</p>
+      <p class="paper-source"><em>Advanced Materials Technologies</em>, 2023, 8, 2301077. (AdvancedScience News)<span class="paper-group">一作及通讯作者</span></p></div></li><li class="paper" id="paper-07" data-category="lead" data-year="2022">
+      <div class="paper-year">2022</div><div><h3 lang="en">Breathable and waterproof electronic skin with three-dimensional architecture for pressure and strain sensing in non-overlapping mode</h3>
+      <p class="paper-authors" lang="en"><strong>Ming Lei</strong>, Kai Feng, Sen Ding, Mingrui Wang, Ziyi Dai, Ruolin Liu, Yibo Gao, Yinning Zhou, Qingsong Xu,* and Bingpu Zhou,*</p>
+      <p class="paper-source"><em>ACS Nano</em>, 2022, 16 (8), 12620–12634. (Reported by Polymer.cn)<span class="paper-group">一作及通讯作者</span></p></div></li><li class="paper" id="paper-08" data-category="lead" data-year="2018">
+      <div class="paper-year">2018</div><div><h3 lang="en">Smart hydrogel-based optical fiber SPR sensor for pH measurements</h3>
+      <p class="paper-authors" lang="en">Yong Zhao, <strong>Ming Lei</strong>, S. X. Liu, et al.</p>
+      <p class="paper-source"><em>Sensors and Actuators B: Chemical</em>, 2018, 226–232.<span class="paper-group">一作及通讯作者</span></p></div></li><li class="paper" id="paper-09" data-category="lead" data-year="2018">
+      <div class="paper-year">2018</div><div><h3 lang="en">In-line Mach-Zehnder interferometer and FBG with smart hydrogel for simultaneous pH and temperature detection</h3>
+      <p class="paper-authors" lang="en"><strong>Ming Lei</strong>, Y. N. Zhang, A. Z. Zhang, et al.</p>
+      <p class="paper-source"><em>IEEE Sensors Journal</em>, 2018, 7499–7504.<span class="paper-group">一作及通讯作者</span></p></div></li><li class="paper" id="paper-10" data-category="coauthor" data-year="2026">
+      <div class="paper-year">2026</div><div><h3 lang="en">Magnetized Joystick with Dual-Anisotropy for High-Capacity Wearable Human-Machine Interactions</h3>
+      <p class="paper-authors" lang="en">Yuanzhe Liang, <strong>Ming Lei</strong>, Biao Qi, Yingyi Zhang, Ziyi Dai, Dan Fang, Jinbo Wu, Jianyi Luo, and Bingpu Zhou,*</p>
+      <p class="paper-source"><em>Microsystems & Nanoengineering</em>, 2026.<span class="paper-group">主要作者</span></p></div></li><li class="paper" id="paper-11" data-category="coauthor" data-year="2026">
+      <div class="paper-year">2026</div><div><h3 lang="en">Flexible Pressure Sensor with Co-optimized Sensitivity and Linearity based on Gradient Toroidal Microstructures</h3>
+      <p class="paper-authors" lang="en">Rongmei Wang, Ruolin Liu, <strong>Ming Lei</strong>,Yifan Liu, Fengming Hu, Bing Ji,* Chao Peng, Jianyi Luo, and Bingpu Zhou,* </p>
+      <p class="paper-source"><em>Advanced Materials Technologies </em>,2026, e71046.<span class="paper-group">主要作者</span></p></div></li><li class="paper" id="paper-12" data-category="coauthor" data-year="未注明">
+      <div class="paper-year">未注明</div><div><h3 lang="en">Self-Adhesive Electronic Skin with Bio-inspired 3D Architecture for Mechanical Stimuli Monitoring and Human-machine Interactions</h3>
+      <p class="paper-authors" lang="en">Wenxue Dai, <strong>Ming Lei</strong>, Ziyi Dai, Sen Ding, Fangcheng Wang, Dan Fang, Rongmei Wang, Biao Qi, Guoping Zhang,* and Bingpu Zhou,*</p>
+      <p class="paper-source"><em>Small</em>, 202406564.<span class="paper-group">主要作者</span></p></div></li><li class="paper" id="paper-13" data-category="coauthor" data-year="2024">
+      <div class="paper-year">2024</div><div><h3 lang="en">Bio-inspired Magnetized String with Tension-dependent Eigenfrequencies for Wearable Human-machine Interactions</h3>
+      <p class="paper-authors" lang="en">Biao Qi, Sen Ding, Yuanzhe Liang, Dan Fang, <strong>Ming Lei</strong>, Wenxue Dai, Chao Peng, and Bingpu Zhou,*</p>
+      <p class="paper-source"><em>ACS Applied Materials & Interfaces</em>, 2024, 16, 68465–68477.<span class="paper-group">主要作者</span></p></div></li><li class="paper" id="paper-14" data-category="coauthor" data-year="2025">
+      <div class="paper-year">2025</div><div><h3 lang="en">Triple-gradient based dielectric layer for flexible capacitive sensor with broad sensing linearity and high sensitivity</h3>
+      <p class="paper-authors" lang="en">Ruolin Liu, Bing Ji,* <strong>Ming Lei</strong>, Fengming Hu, Jianyi Luo and Bingpu Zhou,*</p>
+      <p class="paper-source"><em>Applied Materials Today</em>, 2025, 42, 102614.<span class="paper-group">主要作者</span></p></div></li><li class="paper" id="paper-15" data-category="coauthor" data-year="2025">
+      <div class="paper-year">2025</div><div><h3 lang="en">Bionic Perception of Surface Adhesion via Magnetized Spring-like Sensor with Axial Stretchability</h3>
+      <p class="paper-authors" lang="en">Yuanzhe Liang, Biao Qi, <strong>Ming Lei</strong>, Yingyi Zhang, Yifan Liu, Yinning Zhou, Jianyi Luo, and Bingpu Zhou,*</p>
+      <p class="paper-source"><em>ACS Nano</em>, 2025, 19, 25, 23465–23478.<span class="paper-group">主要作者</span></p></div></li><li class="paper" id="paper-16" data-category="coauthor" data-year="2025">
+      <div class="paper-year">2025</div><div><h3 lang="en">Maximizing Signal Capacity via Intrinsic Damped Vibration of Anisotropic Magnetized Micropillars for Wearable Human-Machine Interface</h3>
+      <p class="paper-authors" lang="en">Biao Qi, Yuanzhe Liang, Sen Ding, Dan Fang, <strong>Ming Lei</strong>, Qian Zhou,* Chao Peng, and Bingpu Zhou,*</p>
+      <p class="paper-source"><em>Chemical Engineering Journal</em>, 2025, 521, 167133.<span class="paper-group">主要作者</span></p></div></li><li class="paper" id="paper-17" data-category="coauthor" data-year="2023">
+      <div class="paper-year">2023</div><div><h3 lang="en">Durable superhydrophobic surface in wearable sensors: from nature to application</h3>
+      <p class="paper-authors" lang="en">Ziyi Dai, <strong>Ming Lei</strong>, Sen Ding, Qian Zhou, Bing Ji, Mingrui Wang, and Bingpu Zhou,*</p>
+      <p class="paper-source"><em>Exploration</em>, 2023. (News)<span class="paper-group">主要作者</span></p></div></li><li class="paper" id="paper-18" data-category="coauthor" data-year="2023">
+      <div class="paper-year">2023</div><div><h3 lang="en">A Flexible Bidirectional Interface with Integrated Multimodal Sensing and Haptic Feedback for Closed‐Loop Human-Machine Interaction</h3>
+      <p class="paper-authors" lang="en">Kai Feng, <strong>Ming Lei</strong>, Xianli Wang, Bingpu Zhou, and Qingsong Xu,</p>
+      <p class="paper-source"><em>Advanced Intelligent Systems</em>, 2023, 2300291.<span class="paper-group">主要作者</span></p></div></li><li class="paper" id="paper-19" data-category="coauthor" data-year="2022">
+      <div class="paper-year">2022</div><div><h3 lang="en">Regulation of Droplet Rebound Behavior with Contact Time Control on a Flexible and Superhydrophobic Film</h3>
+      <p class="paper-authors" lang="en">Sen Ding, Ziyi Dai, Ge Chen, <strong>Ming Lei</strong>, Qi Song, Yibo Gao, Yinning Zhou*, and Bingpu Zhou,*</p>
+      <p class="paper-source"><em>Langmuir</em>, 2022, 38, 9, 2942–2953.<span class="paper-group">主要作者</span></p></div></li><li class="paper" id="paper-20" data-category="coauthor" data-year="2022">
+      <div class="paper-year">2022</div><div><h3 lang="en">Realization of Integrative Hierarchy by In-situ Solidification of ‘Semi-cured’ Microcilia Array in Candle Flame for Robust and Flexible Superhydrophobicity</h3>
+      <p class="paper-authors" lang="en">Ge Chen,† Ziyi Dai,† Sen Ding, <strong>Ming Lei</strong>, Jing Lin, Shuangpeng Wang, Yinning Zhou, Hui Pan, and Bingpu Zhou,*</p>
+      <p class="paper-source"><em>Chemical Engineering Journal</em>, 2022, 432, 134400.<span class="paper-group">主要作者</span></p></div></li><li class="paper" id="paper-21" data-category="coauthor" data-year="2021">
+      <div class="paper-year">2021</div><div><h3 lang="en">Gradient Architecture-Enabled Capacitive Tactile Sensor with High Sensitivity and Ultrabroad Linearity Range</h3>
+      <p class="paper-authors" lang="en">Bing Ji,† Qian Zhou,† <strong>Ming Lei</strong>, Sen Ding, Qi Song, Yibo Gao, Shunbo Li, Yi Xu, Yinning Zhou,* and Bingpu Zhou,*</p>
+      <p class="paper-source"><em>Small</em>, 2021, 202103312.<span class="paper-group">主要作者</span></p></div></li><li class="paper" id="paper-22" data-category="coauthor" data-year="2021">
+      <div class="paper-year">2021</div><div><h3 lang="en">Superhydrophobic and Anti-corrosion Strain Sensor for Robust Underwater Applications</h3>
+      <p class="paper-authors" lang="en">Ziyi Dai, Sen Ding, <strong>Ming Lei</strong>, Shunbo Li, Yi Xu, Yinning Zhou,* and Bingpu Zhou,*</p>
+      <p class="paper-source"><em>Journal of Materials Chemistry A</em>, 2021, 9, 15282–15293.<span class="paper-group">主要作者</span></p></div></li><li class="paper" id="paper-23" data-category="coauthor" data-year="2018">
+      <div class="paper-year">2018</div><div><h3 lang="en">Determination of refractive index by a U-shaped multimode fiber sensor</h3>
+      <p class="paper-authors" lang="en">Zhang Y, <strong>Lei M</strong>, Hu H, et al.</p>
+      <p class="paper-source"><em>Instrumentation Science & Technology</em>, 2018.<span class="paper-group">主要作者</span></p></div></li><li class="paper" id="paper-24" data-category="coauthor" data-year="2018">
+      <div class="paper-year">2018</div><div><h3 lang="en">Highly-sensitive optical fiber temperature sensors based on PDMS/silica hybrid fiber structures</h3>
+      <p class="paper-authors" lang="en">Gao H., Hu H., Zhao Y., Li J., <strong>Lei M.</strong>, Zhang Y.</p>
+      <p class="paper-source"><em>Sensors and Actuators A</em>, 2018.<span class="paper-group">主要作者</span></p></div></li><li class="paper" id="paper-25" data-category="patent" data-year="2018">
+      <div class="paper-year">2018</div><div><h3>一种基于光纤错位结构和 Sagnac 环的温度和折射率双参数传感装置</h3>
+      <p class="paper-authors">赵勇，<strong>雷铭</strong>，张勇，杨时月 等.</p>
+      <p class="paper-source">专利申请号：201810039338.6，2018.<span class="paper-group">专利</span></p></div></li><li class="paper" id="paper-26" data-category="patent" data-year="2018">
+      <div class="paper-year">2018</div><div><h3>一种大范围光纤弯曲可调控装置</h3>
+      <p class="paper-authors">赵勇，杨时月，<strong>雷铭</strong> 等.</p>
+      <p class="paper-source">专利申请号：201810316652.4，2018.<span class="paper-group">专利</span></p></div></li><li class="paper" id="paper-27" data-category="patent" data-year="2018">
+      <div class="paper-year">2018</div><div><h3>一种基于无芯光纤径向大错位结构涂覆聚二甲基硅氧烷的点式温度传感装置</h3>
+      <p class="paper-authors">赵勇，张勇，胡海峰，<strong>雷铭</strong> 等.</p>
+      <p class="paper-source">专利申请号：201810039992.7，2018.<span class="paper-group">专利</span></p></div></li></ol>
+      <div class="empty-state" id="empty-state" hidden><p>没有找到符合条件的成果。</p><button id="reset-filters" class="reset-button" type="button">清除筛选条件</button></div>
+      <p class="publication-note">† 共同第一作者　* 通讯作者</p>
+    </section>
+    <section class="section news-section" id="news" data-nav-section="news" aria-labelledby="news-title"><div class="wrap">
+      <div class="section-heading"><div><p class="eyebrow" lang="en">News &amp; updates</p><h2 id="news-title">新闻动态</h2></div><p class="section-note">研究进展与学术交流</p></div>
+      <div class="news-list"><article class="news-item"><div><time class="news-date" datetime="2026-01-12">2026.01.12</time>
+      <span class="news-location">沈阳，中国</span></div><div class="news-text">成为可穿戴期刊 <strong> <em>Smart Wearable Technology </em> </strong> 审稿人，欢迎大家踊跃投稿。</div></article><article class="news-item"><div><time class="news-date" datetime="2025-12-24">2025.12.24</time>
+      <span class="news-location">澳门，中国</span></div><div class="news-text">首次指导研究生，研究工作 <strong>“Gourd-Inspired Design of Unit Cell with Multiple Gradients for Physiological-Range Pressure Sensing”</strong> 被期刊 <em> Advanced Functional Materials </em> 接收。<strong>感谢两位导师：东北大学赵勇教授，澳门大学周冰朴副教授对工作的悉心指导和大力支持。</strong></div></article><article class="news-item"><div><time class="news-date" datetime="2025-11-02">2025.11.02</time>
+      <span class="news-location">上海，中国</span></div><div class="news-text">受邀参加 ICAFPM2025 并作 <strong>“基于碳基微结构的传感器优化”</strong> 报告。</div></article><article class="news-item"><div><time class="news-date" datetime="2025-09-24">2025.09.24</time>
+      <span class="news-location">澳门，中国</span></div><div class="news-text">研究工作 <strong>“Dual-sided micro-cilia arrays for wearable pressure sensing”</strong> 被期刊 <em>Nanoscale</em> 接收。</div></article></div>
+      <details class="news-archive"><summary>查看更早动态 · 5 条</summary><div class="news-list"><article class="news-item"><div><time class="news-date" datetime="2025-09-02">2025.09.02</time>
+      <span class="news-location">澳门，中国</span></div><div class="news-text">研究工作 <strong>“Engineered Modulus Gradient for Wide-range Linear Capacitive Pressure Transduction”</strong> 被期刊 <em>Advanced Materials Technologies</em> 接收。</div></article><article class="news-item"><div><time class="news-date" datetime="2024-07-30">2024.07.30</time>
+      <span class="news-location">澳门，中国</span></div><div class="news-text">受邀参加 2024 Joint Annual Conference of Physical Societies in Guangdong-Hong Kong-Macao Greater Bay Area，并作题为 <strong>“Multifunctional E-Skin based on Non-overlapping Mode for Information Expansion.”</strong> 的报告。</div></article><article class="news-item"><div><time class="news-date" datetime="2024-05-21">2024.05.21</time>
+      <span class="news-location">澳门，中国</span></div><div class="news-text"><strong>顺利完成博士答辩！</strong></div></article><article class="news-item"><div><time class="news-date" datetime="2024-04-19">2024.04.19</time>
+      <span class="news-location">重庆，中国</span></div><div class="news-text">受邀参加 2024 全国柔性电子技术与先进材料器件研讨会，并作题为 <strong>“Optimization of Bidirectional Bending Sensor as Flexible Ternary Terminal for High-capacity Human-machine Interaction.”</strong> 的报告。</div></article><article class="news-item"><div><time class="news-date" datetime="2023-10-22">2023.10.22</time>
+      <span class="news-location">上海，中国</span></div><div class="news-text">受邀参加 ICAFPM 2023，并作题为 <strong>“Bidirectional Bending Sensor for High-capacity Human-machine Interaction.”</strong> 的报告。</div></article></div></details>
+    </div></section>
+    <section class="section wrap" id="experience" data-nav-section="experience" aria-labelledby="experience-title">
+      <div class="section-heading"><div><p class="eyebrow" lang="en">Academic journey</p><h2 id="experience-title">学术经历</h2></div></div>
+      <div class="experience-grid"><div id="work"><h3 class="experience-heading">工作经历 <span lang="en">Experience</span></h3><div class="timeline"><article class="timeline-item"><p class="timeline-date">2024/10 – 至今</p><h4 class="timeline-title">澳门大学</h4><p class="timeline-text">博士后研究员，从事柔性压力传感器、磁性人机交互器件及光纤频率检测相关研究。</p></article><article class="timeline-item"><p class="timeline-date">2024/06 – 2024/10</p><h4 class="timeline-title">澳门大学</h4><p class="timeline-text">研究助理，参与柔性压力传感器设计等工作。</p></article></div></div><div id="edu"><h3 class="experience-heading">教育经历 <span lang="en">Education</span></h3><div class="timeline"><article class="timeline-item"><p class="timeline-date">2020/08 – 2024/06</p><h4 class="timeline-title">澳门大学</h4><p class="timeline-text">哲学博士 · 应用物理及材料工程专业 · 导师：周冰朴副教授 · 柔性电子与智能界面实验室。</p></article><article class="timeline-item"><p class="timeline-date">2016/09 – 2018/01</p><h4 class="timeline-title">东北大学</h4><p class="timeline-text">工学硕士 · 检测技术与自动化装置 · 导师：赵勇教授（长江学者，国家杰青，东北大学秦皇岛分校校长）。</p></article><article class="timeline-item"><p class="timeline-date">2012/09 – 2016/07</p><h4 class="timeline-title">哈尔滨理工大学</h4><p class="timeline-text">工学学士 · 测控技术与仪器 · 导师：盖建新教授（测控技术与通信工程院副院长）。</p></article></div></div></div>
+      <div class="supporting-grid"><div id="funds"><h3 class="experience-heading">研究基金 <span lang="en">Funding</span></h3><ul><li><strong>参与</strong> · 教育部基本科研业务费重大科技创新项目：用于海洋关键参数智能感知的先进传感器技术研究· 2017–2019</li></ul></div><div id="honors"><h3 class="experience-heading">荣誉奖励 <span lang="en">Honors</span></h3><ul><li>2019 届 “校优秀研究生” 荣誉称号</li><li>2019 届 辽宁省普通高等学校优秀研究生</li><li>2018 年 硕士研究生国家奖学金</li><li>2018 年度 “卓越学人” 荣誉称号</li><li>2017–2018 年度 研究生一等学业奖学金</li><li>2016–2017 年度 研究生一等学业奖学金</li><li>2016–2017 年度 “优秀研究生” 荣誉称号</li><li>2016–2017 年度 “优秀共产党员” 荣誉称号</li></ul></div></div>
+    </section>
+    <section class="contact-section" id="contact" data-nav-section="contact" aria-labelledby="contact-title"><div class="wrap contact-grid"><div><p class="eyebrow" lang="en">Get in touch</p><h2 id="contact-title">学术交流与合作</h2><p>欢迎就柔性传感、可穿戴器件与人机交互交流。</p></div><div><a class="contact-email" href="mailto:leiming@mail.neu.edu.cn">leiming@mail.neu.edu.cn <span aria-hidden="true">↗</span></a><div class="contact-details"><span>中国 · 沈阳</span><a href="tel:+8617824032205">+86 17824032205</a><a href="https://scholar.google.com.hk/citations?user=L6gSsJYAAAAJ&amp;hl=zh-CN" target="_blank" rel="noopener noreferrer">Google Scholar ↗<span class="visually-hidden">（新窗口打开）</span></a></div></div></div></section>
   </main>
-</div>
+  <footer class="site-footer"><div class="wrap footer-inner"><span>© <span id="copyright-year">2026</span> 雷铭 Ming Lei. <span lang="en">All rights reserved.</span></span><a href="#home">返回顶部 ↑</a></div></footer>
+<script>
+(() => {
+  'use strict';
+  const nav = document.querySelector('#site-nav');
+  const menu = document.querySelector('#menu-toggle');
+  const navLinks = [...nav.querySelectorAll('a')];
+  function closeMenu({ focus = false } = {}) {
+    nav.classList.remove('is-open');
+    menu.setAttribute('aria-expanded', 'false');
+    menu.setAttribute('aria-label', '打开导航菜单');
+    document.body.classList.remove('menu-open');
+    if (focus) menu.focus();
+  }
+  menu.addEventListener('click', () => {
+    const open = menu.getAttribute('aria-expanded') !== 'true';
+    nav.classList.toggle('is-open', open);
+    menu.setAttribute('aria-expanded', String(open));
+    menu.setAttribute('aria-label', open ? '关闭导航菜单' : '打开导航菜单');
+    document.body.classList.toggle('menu-open', open);
+  });
+  navLinks.forEach(link => link.addEventListener('click', () => closeMenu()));
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && menu.getAttribute('aria-expanded') === 'true') closeMenu({ focus: true });
+  });
+  document.addEventListener('click', event => {
+    if (!event.target.closest('.site-header')) closeMenu();
+  });
+  nav.addEventListener('focusout', () => {
+    requestAnimationFrame(() => {
+      if (!document.querySelector('.site-header').contains(document.activeElement)) closeMenu();
+    });
+  });
+  window.matchMedia('(min-width: 961px)').addEventListener('change', event => {
+    if (event.matches) closeMenu();
+  });
 
+  const search = document.querySelector('#paper-search');
+  const year = document.querySelector('#paper-year');
+  const filters = [...document.querySelectorAll('.filter-button')];
+  const papers = [...document.querySelectorAll('.paper')];
+  const empty = document.querySelector('#empty-state');
+  const count = document.querySelector('#result-count');
+  let category = 'all';
+  const searchablePapers = papers.map(element => ({
+    element,
+    text: normalize(element.textContent),
+  }));
+  function normalize(value) {
+    return value.normalize('NFKC').toLocaleLowerCase().replace(/\s+/g, ' ').trim();
+  }
+  function filterPapers() {
+    const terms = normalize(search.value).split(' ').filter(Boolean);
+    let visible = 0;
+    searchablePapers.forEach(({ element, text }) => {
+      const match = (category === 'all' || element.dataset.category === category)
+        && (year.value === 'all' || element.dataset.year === year.value)
+        && terms.every(term => text.includes(term));
+      element.hidden = !match;
+      if (match) visible++;
+    });
+    count.textContent = `显示 ${visible} / ${papers.length} 项`;
+    empty.hidden = visible > 0;
+  }
+  filters.forEach(button => button.addEventListener('click', () => {
+    category = button.dataset.filter;
+    filters.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+    filterPapers();
+  }));
+  search.addEventListener('input', filterPapers);
+  year.addEventListener('change', filterPapers);
+  function resetFilters() {
+    search.value = '';
+    year.value = 'all';
+    category = 'all';
+    filters.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.filter === 'all')));
+    filterPapers();
+  }
+  document.querySelector('#reset-filters').addEventListener('click', () => {
+    resetFilters();
+    search.focus();
+  });
+  function revealLinkedPaper() {
+    const id = window.location.hash.slice(1);
+    const target = document.getElementById(id);
+    if (target?.classList.contains('paper')) {
+      if (target.hidden) resetFilters();
+      target.scrollIntoView({ block: 'start' });
+    }
+  }
+  document.querySelectorAll('[data-paper-link]').forEach(link => {
+    link.addEventListener('click', () => {
+      resetFilters();
+      const target = document.querySelector(link.getAttribute('href'));
+      requestAnimationFrame(() => target?.scrollIntoView({ block: 'start' }));
+    });
+  });
+  window.addEventListener('hashchange', revealLinkedPaper);
+  filterPapers();
+  revealLinkedPaper();
+
+  const sections = [...document.querySelectorAll('[data-nav-section]')];
+  let scrollScheduled = false;
+  function updateActiveNavigation() {
+    let current = 'home';
+    sections.forEach(section => {
+      if (section.getBoundingClientRect().top <= 155) current = section.dataset.navSection;
+    });
+    if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 10) current = 'contact';
+    navLinks.forEach(link => {
+      if (link.getAttribute('href') === `#${current}`) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    });
+    scrollScheduled = false;
+  }
+  window.addEventListener('scroll', () => {
+    if (!scrollScheduled) {
+      scrollScheduled = true;
+      requestAnimationFrame(updateActiveNavigation);
+    }
+  }, { passive: true });
+  window.addEventListener('resize', updateActiveNavigation, { passive: true });
+  const copyrightYear = document.querySelector('#copyright-year');
+  copyrightYear.textContent = new Date().getFullYear();
+  updateActiveNavigation();
+  document.documentElement.classList.add('js');
+})();
+
+</script>
 </body>
 </html>
