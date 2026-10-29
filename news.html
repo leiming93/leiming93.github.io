@@ -107,34 +107,55 @@
 <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">菜单</button>
 <nav class="nav" id="site-nav" aria-label="主要导航"><a href="index.html"><span class="nav-en" lang="en">Home</span><span class="nav-zh">首页</span></a><a href="about.html"><span class="nav-en" lang="en">About</span><span class="nav-zh">个人简介</span></a><a href="research.html"><span class="nav-en" lang="en">Research</span><span class="nav-zh">研究方向</span></a><a href="publications.html"><span class="nav-en" lang="en">Publications</span><span class="nav-zh">学术论文</span></a><a href="news.html" aria-current="page"><span class="nav-en" lang="en">News</span><span class="nav-zh">研究动态</span></a></nav>
 </div></header>
-<main id="main"><div class="wrap news-content"><h1 class="visually-hidden">研究动态</h1>
+<main id="main">
+  <div class="wrap news-content">
+    <h1 class="visually-hidden">研究动态</h1>
 
-<article class="news-entry" id="crater-2026">
-  <time class="news-date" datetime="2026-10-16">2026.10.16</time>
+    <!-- 新增动态：把完整的 article 段落粘贴在本注释下方，最新的放在最前面。 -->
+    <!-- 每条动态的 id 不要重复；datetime 与显示日期请同时修改。 -->
 
-  <h2 lang="en">
-    Crater-Inspired Hollow Microdome Arrays for Linear Megapascal-Range Wearable Pressure Sensing
-  </h2>
+    <!-- 2026.10.16：论文发表 -->
+    <article class="news-entry" id="crater-2026">
+      <time class="news-date" datetime="2026-10-16">2026.10.16</time>
+      <h2 lang="en">Crater-Inspired Hollow Microdome Arrays for Linear Megapascal-Range Wearable Pressure Sensing</h2>
+      <p>
+        发表于 <strong><em lang="en">ACS Applied Electronic Materials</em></strong>。
+        <a href="https://doi.org/10.1021/acsaelm.6c01672" target="_blank" rel="noopener">论文原文</a>
+      </p>
+    </article>
 
-  <p>
-    发表于 <strong><em lang="en">ACS Applied Electronic Materials</em></strong>。
-    <a href="https://doi.org/10.1021/acsaelm.6c01672"
-       target="_blank" rel="noopener">论文原文</a>
-  </p>
-</article>
-<article class="news-entry" id="advanced-bionics-editor-2026">
-  <time class="news-date" datetime="2026-08-01">2026.08.01</time>
+    <!-- 2026.08.01：青年编委任职 -->
+    <article class="news-entry" id="advanced-bionics-editor-2026">
+      <time class="news-date" datetime="2026-08-01">2026.08.01</time>
+      <h2>受聘担任 <span lang="en">Advanced Bionics</span> 青年编委</h2>
+      <p>
+        雷铭受聘担任 <strong><em lang="en">Advanced Bionics</em></strong> 青年编委，聘期为2026年8月1日至2028年7月31日。
+      </p>
+    </article>
 
-  <h2>
-    受聘担任 <span lang="en">Advanced Bionics</span> 青年编委
-  </h2>
+    <!-- 2025.12.24：论文发表 -->
+    <article class="news-entry" id="gourd-2026">
+      <time class="news-date" datetime="2025-12-24">2025.12.24</time>
+      <h2 lang="en">Gourd-Inspired Design of Unit Cell with Multiple Gradients for Physiological-Range Pressure Sensing</h2>
+      <p>发表于 <strong><em lang="en">Advanced Functional Materials</em></strong>。</p>
+    </article>
 
-  <p>
-    雷铭受聘担任 <strong><em lang="en">Advanced Bionics</em></strong>
-    青年编委，聘期为2026年8月1日至2028年7月31日。
-  </p>
-</article>
-<article class="news-entry" id="gourd-2026"><time class="news-date" datetime="2025-12-24">2025.12.24</time><h2 lang="en">Gourd-Inspired Design of Unit Cell with Multiple Gradients for Physiological-Range Pressure Sensing</h2><p>发表于 <strong><em lang="en">Advanced Functional Materials</em></strong>。</p></article><article class="news-entry" id="cactus-2025"><time class="news-date" datetime="2025-09-24">2025.09.24</time><h2 lang="en">Cactus-inspired dual-sided micro-cilia arrays with swelling-induced CNT networks for high-performance wearable pressure sensing</h2><p>发表于 <strong><em lang="en">Nanoscale</em></strong>。</p></article><article class="news-entry" id="dielectric-2025"><time class="news-date" datetime="2025-09-10">2025.09.10</time><h2 lang="en">Double-Domed Dielectric Foam with Engineered Modulus Gradient for Wide-Range Linear Capacitive Pressure Transduction</h2><p>发表于 <strong><em lang="en">Advanced Materials Technologies</em></strong>。</p></article></div></main>
+    <!-- 2025.09.24：论文发表 -->
+    <article class="news-entry" id="cactus-2025">
+      <time class="news-date" datetime="2025-09-24">2025.09.24</time>
+      <h2 lang="en">Cactus-inspired dual-sided micro-cilia arrays with swelling-induced CNT networks for high-performance wearable pressure sensing</h2>
+      <p>发表于 <strong><em lang="en">Nanoscale</em></strong>。</p>
+    </article>
+
+    <!-- 2025.09.10：论文发表 -->
+    <article class="news-entry" id="dielectric-2025">
+      <time class="news-date" datetime="2025-09-10">2025.09.10</time>
+      <h2 lang="en">Double-Domed Dielectric Foam with Engineered Modulus Gradient for Wide-Range Linear Capacitive Pressure Transduction</h2>
+      <p>发表于 <strong><em lang="en">Advanced Materials Technologies</em></strong>。</p>
+    </article>
+
+  </div>
+</main>
 <script>document.documentElement.classList.add('js');
 const toggle = document.querySelector('.nav-toggle');
 const nav = document.querySelector('#site-nav');
