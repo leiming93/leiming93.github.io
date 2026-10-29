@@ -1,0 +1,133 @@
+雷铭学术主页：ORCID 论文自动同步
+适用仓库：https://github.com/leiming93/leiming93.github.io
+ORCID：https://orcid.org/0009-0000-9869-4474
+准备日期：2026-10-29
+
+这份修改包已经完成什么
+
+已实际读取你的 ORCID 公开数据，并把原页面的 29 条记录合并为 31 篇论文。
+ORCID 的 32 条成果中，1 条学位论文不纳入此页。期刊论文和会议论文均可同步。
+保留原有页面样式、导航、作者姓名加粗和 29 个条目锚点。
+保留原有 28 个 DOI；另外补全了磁化摇杆、呼吸通信、火山口微穹顶论文的 DOI。
+AFM 葫芦形单元论文按 ORCID 更新为 2026 年、36(32)、e27243。
+本次只生成了修改文件；你的在线网站和 GitHub 设置尚未改变。
+
+一、把文件放到正确位置
+
+解压 orcid-auto-update.zip。包内相对路径必须保持如下对应关系：
+
+publications.html                         替换仓库根目录的同名文件
+data/publications.json                    新增到 data 文件夹
+scripts/update_publications.py            新增到 scripts 文件夹
+tests/test_update_publications.py         新增到 tests 文件夹
+.github/workflows/update-publications.yml  新增到 .github/workflows 文件夹
+SETUP_ZH.txt                              本说明，可留在本地
+
+不要把 ZIP 本身当作网页文件上传，也不要在仓库中多套一层 orcid-auto-update 文件夹。
+其他页面继续使用仓库里的现有文件。
+
+二、通过 GitHub 网页安装（无需安装 Python）
+
+1. 登录 GitHub，打开：
+   https://github.com/leiming93/leiming93.github.io
+
+2. 打开 Settings → Pages，在 Build and deployment 下将 Source 设为 GitHub Actions。
+
+3. 回到 Code 页面，确认当前分支是 main。
+   点击 Add file → Upload files，把解压后的 publications.html 文件，以及 data、scripts、tests
+   三个文件夹拖入上传区域。确认路径正确，然后 Commit changes 到 main。
+
+4. 为避免上传时遗漏以点开头的 .github 文件夹，单独创建工作流：
+   点击 Add file → Create new file。
+   文件名完整输入：.github/workflows/update-publications.yml
+   用记事本打开解压包中该路径的文件，复制全部内容，粘贴到 GitHub 编辑器。
+   点击 Commit changes，提交到 main。
+   如果同名文件已存在，请编辑已有文件；不要创建第二份相同用途的定时任务。
+
+5. 点击仓库顶部的 Actions，找到 “Update publications and deploy website”。
+   上传工作流后通常会自动运行；也可以点击 Run workflow，选择 main，再点 Run workflow。
+
+6. 等待这次运行出现绿色勾。打开：
+   https://leiming93.github.io/publications.html
+   页面应显示 31 篇论文，2026 年共 6 篇。若浏览器仍显示旧内容，可按 Ctrl+F5 刷新。
+
+以后每天北京时间 10:17 计划同步一次；GitHub 的调度可能延迟。
+你修改仓库内容并提交 main 时，也会自动同步和发布。
+
+三、日后如何维护
+
+1. 新论文必须先出现在 ORCID 的公开 Works 列表，网站才会在下一次同步时收录。
+   这个程序负责 ORCID → 主页；ORCID 自身是否自动新增论文，取决于你与 Crossref、出版社等
+   服务的授权及其提供的元数据。也可以直接在 ORCID 中手动添加新论文。
+
+2. 页面内容来自 data/publications.json，程序只更新 HTML 中两个 ORCID-PUBLICATIONS 标记之间
+   的区域。日常手动修正优先改 JSON，直接改生成区域会在下次同步时被重新生成。
+
+3. 每条记录都有 overrides 字段。需要长期保留某项手动修正时，把它放到 overrides 中，例如：
+   "overrides": {
+     "year": 2026,
+     "journal": "Advanced Functional Materials",
+     "doi": "10.1002/adfm.202527243"
+   }
+   overrides 只写需要手动固定的字段，其余字段继续同步。
+   不要改动每条记录的 id；其他网页可能通过这个锚点链接到论文。
+
+4. 隐藏某篇论文：把该记录的 "hidden": false 改为 "hidden": true。
+   程序默认保留已有条目，因此在 ORCID 中删除论文，不会自动删除网站缓存中的条目。
+
+5. 未提供 DOI 的新论文会尝试匹配 Crossref。仅当标题、第一作者和年份能够核对，且结果唯一时，
+   才会使用匹配到的 DOI；否则使用已有论文网址或 ORCID 记录链接。
+   目前这 31 篇论文已全部具有 DOI 链接。
+
+6. 题录信息优先更新为 ORCID 的非空值；原链接和人工覆盖值会保留。
+   如果 ORCID 数据本身存在错误，请更正 ORCID，或使用 overrides 在本站修正。
+
+四、如果运行失败
+
+打开 Actions 中失败的那次运行，展开红色步骤查看错误。
+
+• “Read public ORCID papers and update the page” 失败：
+  检查 ORCID 是否仍有公开论文。临时网络失败时可点 Re-run jobs；已有网页不会被发布成空列表。
+
+• “Save the current paper list and sync time” 出现 403：
+  在 Settings → Actions → General → Workflow permissions 中检查是否允许 Read and write permissions。
+  如果 main 分支规则禁止自动提交，需要调整为允许本工作流写入；不要删除分支保护来尝试修复。
+  也可能是运行期间你又提交了其他改动；重新运行最新 main 即可。
+
+• “Configure GitHub Pages” 或 “Deploy the website” 失败：
+  再次检查 Settings → Pages 的 Source 是否为 GitHub Actions，并查看 github-pages 环境是否有
+  额外的部署限制。
+
+• 找不到 tests/test_update_publications.py：
+  补上传 tests 文件夹。工作流会先运行回归检查。
+
+• 长期不再执行：
+  检查 Actions 中工作流是否被停用。公开仓库连续 60 天没有仓库活动时，GitHub 可能禁用定时任务。
+  正常同步会提交最新数据和同步时间；如果长期没有成功运行，请检查日志并重新启用工作流。
+
+五、可选的本地操作
+
+Python 3.11 或更高版本即可，无需第三方依赖。
+
+联网同步：
+  python scripts/update_publications.py
+
+只用已保存的数据生成页面：
+  python scripts/update_publications.py --offline
+
+运行回归检查：
+  python -m unittest discover -s tests -p "test_update_publications.py" -v
+
+部署任务会把生成的论文数据提交回仓库，并在同一次任务中直接发布完整站点。
+因此不依赖机器人提交再触发第二个 GitHub Pages 构建。
+
+官方参考
+
+ORCID 数据读取：
+https://info.orcid.org/documentation/api-tutorials/api-tutorial-read-data-on-a-record/
+Crossref 数据接口：
+https://www.crossref.org/documentation/retrieve-metadata/rest-api/
+GitHub Pages 自定义工作流：
+https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages
+GitHub 定时工作流：
+https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule

@@ -1,0 +1,864 @@
+{
+  "schema_version": 1,
+  "orcid": "0009-0000-9869-4474",
+  "owner_name": "Ming Lei",
+  "include_types": [
+    "journal-article",
+    "conference-paper"
+  ],
+  "publications": [
+    {
+      "id": "toroidal-2026",
+      "title": "Flexible Pressure Sensor With Co-Optimized Sensitivity and Linearity Based on Gradient Toroidal Microstructures",
+      "authors": [
+        "Rongmei Wang",
+        "Ruolin Liu",
+        "Ming Lei",
+        "Yifan Liu",
+        "Fengming Hu",
+        "Bing Ji",
+        "Chao Peng",
+        "Jianyi Luo",
+        "Bingpu Zhou"
+      ],
+      "journal": "Advanced Materials Technologies",
+      "year": 2026,
+      "volume": "",
+      "issue": "",
+      "pages": "e71046",
+      "doi": "10.1002/admt.71046",
+      "url": "https://doi.org/10.1002/admt.71046",
+      "url_label": "论文原文",
+      "type": "journal-article",
+      "orcid_put_codes": [
+        231604492
+      ],
+      "hidden": false,
+      "overrides": {}
+    },
+    {
+      "id": "compressibility-2026",
+      "title": "Co-modulation of overall compressibility and conductive networks on individual sensing unit for high-performance flexible tactile sensors",
+      "authors": [
+        "Yifan Liu",
+        "Zheming Zhang",
+        "Xiao Xu",
+        "Fengming Hu",
+        "Ruolin Liu",
+        "Rongmei Wang",
+        "Ming Lei",
+        "Ziyi Dai",
+        "Bingpu Zhou"
+      ],
+      "journal": "Chemical Engineering Journal",
+      "year": 2026,
+      "volume": "530",
+      "issue": "",
+      "pages": "173383",
+      "doi": "10.1016/j.cej.2026.173383",
+      "url": "https://doi.org/10.1016/j.cej.2026.173383",
+      "url_label": "论文原文",
+      "type": "journal-article",
+      "orcid_put_codes": [
+        231604486
+      ],
+      "hidden": false,
+      "overrides": {}
+    },
+    {
+      "id": "joystick-2026",
+      "title": "Magnetized joystick with dual-anisotropy for high-capacity wearable human-machine interactions",
+      "authors": [
+        "Yuanzhe Liang",
+        "Ming Lei",
+        "Biao Qi",
+        "Yingyi Zhang",
+        "Ziyi Dai",
+        "Dan Fang",
+        "Jinbo Wu",
+        "Jianyi Luo",
+        "Bingpu Zhou"
+      ],
+      "journal": "Microsystems & Nanoengineering",
+      "year": 2026,
+      "volume": "12",
+      "issue": "1",
+      "pages": "346",
+      "doi": "10.1038/s41378-026-01459-y",
+      "url": "https://bpzhou.wixsite.com/um-mnf/publications",
+      "url_label": "论文信息",
+      "type": "journal-article",
+      "orcid_put_codes": [
+        231604490
+      ],
+      "hidden": false,
+      "overrides": {},
+      "doi_source": "Crossref: title, first author and year verified"
+    },
+    {
+      "id": "gourd-2026",
+      "title": "Gourd-Inspired Design of Unit Cell with Multiple Gradients for Physiological-Range Pressure Sensing",
+      "authors": [
+        "Jiayi Xu",
+        "Ming Lei",
+        "Yuanzhe Liang",
+        "Biao Qi",
+        "Ziyi Dai",
+        "Yong Zhao",
+        "Bingpu Zhou"
+      ],
+      "journal": "Advanced Functional Materials",
+      "year": 2026,
+      "volume": "36",
+      "issue": "32",
+      "pages": "e27243",
+      "doi": "10.1002/adfm.202527243",
+      "url": "https://doi.org/10.1002/adfm.202527243",
+      "url_label": "论文原文",
+      "type": "journal-article",
+      "orcid_put_codes": [
+        231604488
+      ],
+      "hidden": false,
+      "overrides": {}
+    },
+    {
+      "id": "cactus-2025",
+      "title": "Cactus-inspired dual-sided micro-cilia arrays with swelling-induced CNT networks for high-performance wearable pressure sensing",
+      "authors": [
+        "Ming Lei",
+        "Bingpu Zhou"
+      ],
+      "journal": "Nanoscale",
+      "year": 2025,
+      "volume": "17",
+      "issue": "42",
+      "pages": "24726–24741",
+      "doi": "10.1039/d5nr02983j",
+      "url": "https://doi.org/10.1039/D5NR02983J",
+      "url_label": "论文原文",
+      "type": "journal-article",
+      "orcid_put_codes": [
+        231604487
+      ],
+      "hidden": false,
+      "overrides": {}
+    },
+    {
+      "id": "dielectric-2025",
+      "title": "Double-Domed Dielectric Foam with Engineered Modulus Gradient for Wide-Range Linear Capacitive Pressure Transduction",
+      "authors": [
+        "Ming Lei",
+        "Biao Qi",
+        "Yuanzhe Liang",
+        "Ruolin Liu",
+        "Ziyi Dai",
+        "Bing Ji",
+        "Bingpu Zhou"
+      ],
+      "journal": "Advanced Materials Technologies",
+      "year": 2025,
+      "volume": "10",
+      "issue": "24",
+      "pages": "e01289",
+      "doi": "10.1002/admt.202501289",
+      "url": "https://doi.org/10.1002/admt.202501289",
+      "url_label": "论文原文",
+      "type": "journal-article",
+      "orcid_put_codes": [
+        231604481
+      ],
+      "hidden": false,
+      "overrides": {}
+    },
+    {
+      "id": "liquid-interference-2025",
+      "title": "Liquid interference mitigation in capacitive sensors using Cassie–Baxter state based on superhydrophobic surfaces",
+      "authors": [
+        "Yifei Xiao",
+        "Ziyi Dai",
+        "Yu Wang",
+        "Zejian Yan",
+        "Yimeng Xu",
+        "Mingrui Wang",
+        "Ming Lei",
+        "Qingmeng Zhang",
+        "Kai Qian"
+      ],
+      "journal": "ACS Applied Electronic Materials",
+      "year": 2025,
+      "volume": "7",
+      "issue": "9",
+      "pages": "4287–4296",
+      "doi": "10.1021/acsaelm.5c00453",
+      "url": "https://doi.org/10.1021/acsaelm.5c00453",
+      "url_label": "论文原文",
+      "type": "journal-article",
+      "orcid_put_codes": [
+        231604482
+      ],
+      "hidden": false,
+      "overrides": {}
+    },
+    {
+      "id": "triple-dielectric-2025",
+      "title": "Triple-gradient based dielectric layer for flexible capacitive sensor with broad sensing linearity and high sensitivity",
+      "authors": [
+        "Ruolin Liu",
+        "Bing Ji",
+        "Ming Lei",
+        "Fengming Hu",
+        "Jianyi Luo",
+        "Bingpu Zhou"
+      ],
+      "journal": "Applied Materials Today",
+      "year": 2025,
+      "volume": "42",
+      "issue": "",
+      "pages": "102614",
+      "doi": "10.1016/j.apmt.2025.102614",
+      "url": "https://doi.org/10.1016/j.apmt.2025.102614",
+      "url_label": "论文原文",
+      "type": "journal-article",
+      "orcid_put_codes": [
+        231604479
+      ],
+      "hidden": false,
+      "overrides": {}
+    },
+    {
+      "id": "vibration-2025",
+      "title": "Maximizing signal capacity via intrinsic damped vibration of anisotropic magnetized micropillars for wearable human-machine interface",
+      "authors": [
+        "Biao Qi",
+        "Yuanzhe Liang",
+        "Sen Ding",
+        "Dan Fang",
+        "Ming Lei",
+        "Qian Zhou",
+        "Chao Peng",
+        "Bingpu Zhou"
+      ],
+      "journal": "Chemical Engineering Journal",
+      "year": 2025,
+      "volume": "521",
+      "issue": "",
+      "pages": "167133",
+      "doi": "10.1016/j.cej.2025.167133",
+      "url": "https://doi.org/10.1016/j.cej.2025.167133",
+      "url_label": "论文原文",
+      "type": "journal-article",
+      "orcid_put_codes": [
+        231604484
+      ],
+      "hidden": false,
+      "overrides": {}
+    },
+    {
+      "id": "adhesion-2025",
+      "title": "Bionic perception of surface adhesion via a magnetized spring-like sensor with axial stretchability",
+      "authors": [
+        "Yuanzhe Liang",
+        "Biao Qi",
+        "Ming Lei",
+        "Yingyi Zhang",
+        "Yifan Liu",
+        "Yinning Zhou",
+        "Jianyi Luo",
+        "Bingpu Zhou"
+      ],
+      "journal": "ACS Nano",
+      "year": 2025,
+      "volume": "19",
+      "issue": "25",
+      "pages": "23465",
+      "doi": "10.1021/acsnano.5c07356",
+      "url": "https://doi.org/10.1021/acsnano.5c07356",
+      "url_label": "论文原文",
+      "type": "journal-article",
+      "orcid_put_codes": [
+        231604483
+      ],
+      "hidden": false,
+      "overrides": {}
+    },
+    {
+      "id": "self-adhesive-2024",
+      "title": "Self-Adhesive Electronic Skin with Bio-Inspired 3D Architecture for Mechanical Stimuli Monitoring and Human-Machine Interactions",
+      "authors": [
+        "Wenxue Dai",
+        "Ming Lei",
+        "Ziyi Dai",
+        "Sen Ding",
+        "Fangcheng Wang",
+        "Dan Fang",
+        "Rongmei Wang",
+        "Biao Qi",
+        "Guoping Zhang",
+        "Bingpu Zhou"
+      ],
+      "journal": "Small",
+      "year": 2024,
+      "volume": "20",
+      "issue": "51",
+      "pages": "2406564",
+      "doi": "10.1002/smll.202406564",
+      "url": "https://doi.org/10.1002/smll.202406564",
+      "url_label": "论文原文",
+      "type": "journal-article",
+      "orcid_put_codes": [
+        231604476
+      ],
+      "hidden": false,
+      "overrides": {}
+    },
+    {
+      "id": "string-2024",
+      "title": "Bioinspired Magnetized String with Tension-Dependent Eigenfrequencies for Wearable Human–Machine Interactions",
+      "authors": [
+        "Biao Qi",
+        "Sen Ding",
+        "Yuanzhe Liang",
+        "Dan Fang",
+        "Ming Lei",
+        "Wenxue Dai",
+        "Chao Peng",
+        "Bingpu Zhou"
+      ],
+      "journal": "ACS Applied Materials & Interfaces",
+      "year": 2024,
+      "volume": "16",
+      "issue": "49",
+      "pages": "68465",
+      "doi": "10.1021/acsami.4c16653",
+      "url": "https://doi.org/10.1021/acsami.4c16653",
+      "url_label": "论文原文",
+      "type": "journal-article",
+      "orcid_put_codes": [
+        231604474
+      ],
+      "hidden": false,
+      "overrides": {}
+    },
+    {
+      "id": "durable-superhydrophobic-2024",
+      "title": "Durable superhydrophobic surface in wearable sensors: From nature to application",
+      "authors": [
+        "Ziyi Dai",
+        "Ming Lei",
+        "Sen Ding",
+        "Qian Zhou",
+        "Bing Ji",
+        "Mingrui Wang",
+        "Bingpu Zhou"
+      ],
+      "journal": "Exploration",
+      "year": 2024,
+      "volume": "4",
+      "issue": "2",
+      "pages": "20230046",
+      "doi": "10.1002/exp.20230046",
+      "url": "https://doi.org/10.1002/exp.20230046",
+      "url_label": "论文原文",
+      "type": "conference-paper",
+      "orcid_put_codes": [
+        231604473
+      ],
+      "hidden": false,
+      "overrides": {}
+    },
+    {
+      "id": "cardiovascular-2023",
+      "title": "Applications of flexible electronics related to cardiocerebral vascular system",
+      "authors": [
+        "Runxing Lin",
+        "Ming Lei",
+        "Sen Ding",
+        "Quansheng Cheng",
+        "Zhichao Ma",
+        "Liping Wang",
+        "Zikang Tang",
+        "Bingpu Zhou",
+        "Yinning Zhou"
+      ],
+      "journal": "Materials Today Bio",
+      "year": 2023,
+      "volume": "23",
+      "issue": "",
+      "pages": "100787",
+      "doi": "10.1016/j.mtbio.2023.100787",
+      "url": "https://doi.org/10.1016/j.mtbio.2023.100787",
+      "url_label": "论文原文",
+      "type": "journal-article",
+      "orcid_put_codes": [
+        231604477
+      ],
+      "hidden": false,
+      "overrides": {}
+    },
+    {
+      "id": "sensitivity-linearity-2023",
+      "title": "Simultaneous optimization of sensitivity and linearity for flexible pressure sensor via coupling effect between microstructures and flat substrate component",
+      "authors": [
+        "Ruolin Liu",
+        "Bing Ji",
+        "Ming Lei",
+        "Fengming Hu",
+        "Bingpu Zhou"
+      ],
+      "journal": "ACS Applied Electronic Materials",
+      "year": 2023,
+      "volume": "5",
+      "issue": "12",
+      "pages": "6918–6928",
+      "doi": "10.1021/acsaelm.3c01346",
+      "url": "https://doi.org/10.1021/acsaelm.3c01346",
+      "url_label": "论文原文",
+      "type": "journal-article",
+      "orcid_put_codes": [
+        231604475
+      ],
+      "hidden": false,
+      "overrides": {}
+    },
+    {
+      "id": "hybrid-dielectric-2023",
+      "title": "Template-free Formation of Hybrid Dielectric for Flexible Capacitive Sensors with Wide-Pressure-Range Linear Detection",
+      "authors": [
+        "Ming Lei",
+        "Bing Ji",
+        "Sen Ding",
+        "Ruolin Liu",
+        "Bingpu Zhou"
+      ],
+      "journal": "Advanced Materials Technologies",
+      "year": 2023,
+      "volume": "8",
+      "issue": "23",
+      "pages": "2301077",
+      "doi": "10.1002/admt.202301077",
+      "url": "https://doi.org/10.1002/admt.202301077",
+      "url_label": "论文原文",
+      "type": "journal-article",
+      "orcid_put_codes": [
+        231604469
+      ],
+      "hidden": false,
+      "overrides": {}
+    },
+    {
+      "id": "closed-loop-2023",
+      "title": "A flexible bidirectional interface with integrated multimodal sensing and haptic feedback for closed-loop human–machine interaction",
+      "authors": [
+        "Kai Feng",
+        "Ming Lei",
+        "Xianli Wang",
+        "Bingpu Zhou",
+        "Qingsong Xu"
+      ],
+      "journal": "Advanced Intelligent Systems",
+      "year": 2023,
+      "volume": "5",
+      "issue": "11",
+      "pages": "2300291",
+      "doi": "10.1002/aisy.202300291",
+      "url": "https://doi.org/10.1002/aisy.202300291",
+      "url_label": "论文原文",
+      "type": "journal-article",
+      "orcid_put_codes": [
+        231604467
+      ],
+      "hidden": false,
+      "overrides": {}
+    },
+    {
+      "id": "sweeping-interface-2022",
+      "title": "Sweeping-responsive interface using the intrinsic polarity of magnetized micropillars for self-powered and high-capacity human-machine interaction",
+      "authors": [
+        "Sen Ding",
+        "Mingrui Wang",
+        "Hao Yang",
+        "Fengming Hu",
+        "Ziyi Dai",
+        "Ming Lei",
+        "Qian Zhou",
+        "Dazhe Zhao",
+        "Yibo Gao",
+        "Junwen Zhong",
+        "others"
+      ],
+      "journal": "Nano Energy",
+      "year": 2022,
+      "volume": "102",
+      "issue": "",
+      "pages": "107671",
+      "doi": "10.1016/j.nanoen.2022.107671",
+      "url": "https://doi.org/10.1016/j.nanoen.2022.107671",
+      "url_label": "论文原文",
+      "type": "journal-article",
+      "orcid_put_codes": [
+        231604478
+      ],
+      "hidden": false,
+      "overrides": {}
+    },
+    {
+      "id": "bidirectional-bending-2022",
+      "title": "Optimization of bidirectional bending sensor as flexible ternary terminal for high-capacity human-machine interaction",
+      "authors": [
+        "Ziyi Dai",
+        "Kai Feng",
+        "Mingrui Wang",
+        "Ming Lei",
+        "Sen Ding",
+        "Jianyi Luo",
+        "Qingsong Xu",
+        "Bingpu Zhou"
+      ],
+      "journal": "Nano Energy",
+      "year": 2022,
+      "volume": "97",
+      "issue": "",
+      "pages": "107173",
+      "doi": "10.1016/j.nanoen.2022.107173",
+      "url": "https://doi.org/10.1016/j.nanoen.2022.107173",
+      "url_label": "论文原文",
+      "type": "journal-article",
+      "orcid_put_codes": [
+        231604465
+      ],
+      "hidden": false,
+      "overrides": {}
+    },
+    {
+      "id": "microcilia-flame-2022",
+      "title": "Realization of integrative hierarchy by in-situ solidification of ‘semi-cured’microcilia array in candle flame for robust and flexible superhydrophobicity",
+      "authors": [
+        "Ge Chen",
+        "Ziyi Dai",
+        "Sen Ding",
+        "Ming Lei",
+        "Jing Lin",
+        "Shuangpeng Wang",
+        "Yinning Zhou",
+        "Hui Pan",
+        "Bingpu Zhou"
+      ],
+      "journal": "Chemical Engineering Journal",
+      "year": 2022,
+      "volume": "432",
+      "issue": "",
+      "pages": "134400",
+      "doi": "10.1016/j.cej.2021.134400",
+      "url": "https://doi.org/10.1016/j.cej.2021.134400",
+      "url_label": "论文原文",
+      "type": "journal-article",
+      "orcid_put_codes": [
+        231604468
+      ],
+      "hidden": false,
+      "overrides": {}
+    },
+    {
+      "id": "droplet-rebound-2022",
+      "title": "Regulation of droplet rebound behavior with contact time control on a flexible and superhydrophobic film",
+      "authors": [
+        "Sen Ding",
+        "Ziyi Dai",
+        "Ge Chen",
+        "Ming Lei",
+        "Qi Song",
+        "Yibo Gao",
+        "Yinning Zhou",
+        "Bingpu Zhou"
+      ],
+      "journal": "Langmuir",
+      "year": 2022,
+      "volume": "38",
+      "issue": "9",
+      "pages": "2942–2953",
+      "doi": "10.1021/acs.langmuir.1c03429",
+      "url": "https://doi.org/10.1021/acs.langmuir.1c03429",
+      "url_label": "论文原文",
+      "type": "journal-article",
+      "orcid_put_codes": [
+        231604466
+      ],
+      "hidden": false,
+      "overrides": {}
+    },
+    {
+      "id": "electronic-skin-2022",
+      "title": "Breathable and waterproof electronic skin with three-dimensional architecture for pressure and strain sensing in nonoverlapping mode",
+      "authors": [
+        "Ming Lei",
+        "Kai Feng",
+        "Sen Ding",
+        "Mingrui Wang",
+        "Ziyi Dai",
+        "Ruolin Liu",
+        "Yibo Gao",
+        "Yinning Zhou",
+        "Qingsong Xu",
+        "Bingpu Zhou"
+      ],
+      "journal": "ACS Nano",
+      "year": 2022,
+      "volume": "16",
+      "issue": "8",
+      "pages": "12620–12634",
+      "doi": "10.1021/acsnano.2c04188",
+      "url": "https://doi.org/10.1021/acsnano.2c04188",
+      "url_label": "论文原文",
+      "type": "journal-article",
+      "orcid_put_codes": [
+        231604464
+      ],
+      "hidden": false,
+      "overrides": {}
+    },
+    {
+      "id": "gradient-architecture-2021",
+      "title": "Gradient architecture-enabled capacitive tactile sensor with high sensitivity and ultrabroad linearity range",
+      "authors": [
+        "Bing Ji",
+        "Qian Zhou",
+        "Ming Lei",
+        "Sen Ding",
+        "Qi Song",
+        "Yibo Gao",
+        "Shunbo Li",
+        "Yi Xu",
+        "Yinning Zhou",
+        "Bingpu Zhou"
+      ],
+      "journal": "Small",
+      "year": 2021,
+      "volume": "17",
+      "issue": "43",
+      "pages": "2103312",
+      "doi": "10.1002/smll.202103312",
+      "url": "https://doi.org/10.1002/smll.202103312",
+      "url_label": "论文原文",
+      "type": "journal-article",
+      "orcid_put_codes": [
+        231604461
+      ],
+      "hidden": false,
+      "overrides": {}
+    },
+    {
+      "id": "underwater-2021",
+      "title": "A superhydrophobic and anti-corrosion strain sensor for robust underwater applications",
+      "authors": [
+        "Ziyi Dai",
+        "Sen Ding",
+        "Ming Lei",
+        "Shunbo Li",
+        "Yi Xu",
+        "Yinning Zhou",
+        "Bingpu Zhou"
+      ],
+      "journal": "Journal of Materials Chemistry A",
+      "year": 2021,
+      "volume": "9",
+      "issue": "27",
+      "pages": "15282–15293",
+      "doi": "10.1039/d1ta04259a",
+      "url": "https://doi.org/10.1039/d1ta04259a",
+      "url_label": "论文原文",
+      "type": "journal-article",
+      "orcid_put_codes": [
+        231604460
+      ],
+      "hidden": false,
+      "overrides": {}
+    },
+    {
+      "id": "pdms-silica-2018",
+      "title": "Highly-sensitive optical fiber temperature sensors based on PDMS/silica hybrid fiber structures",
+      "authors": [
+        "Han Gao",
+        "Haifeng Hu",
+        "Yong Zhao",
+        "Jin Li",
+        "Ming Lei",
+        "Yong Zhang"
+      ],
+      "journal": "Sensors and Actuators A: Physical",
+      "year": 2018,
+      "volume": "284",
+      "issue": "",
+      "pages": "22–27",
+      "doi": "10.1016/j.sna.2018.10.011",
+      "url": "https://doi.org/10.1016/j.sna.2018.10.011",
+      "url_label": "论文原文",
+      "type": "journal-article",
+      "orcid_put_codes": [
+        231604471
+      ],
+      "hidden": false,
+      "overrides": {}
+    },
+    {
+      "id": "no-core-mzi-2018",
+      "title": "High-sensitive Mach-Zehnder interferometers based on no-core optical fiber with large lateral offset",
+      "authors": [
+        "Yong Zhao",
+        "Yong Zhang",
+        "Hai-feng Hu",
+        "Yang Yang",
+        "Ming Lei",
+        "Shu-na Wang"
+      ],
+      "journal": "Sensors and Actuators A: Physical",
+      "year": 2018,
+      "volume": "281",
+      "issue": "",
+      "pages": "9–14",
+      "doi": "10.1016/j.sna.2018.08.026",
+      "url": "https://doi.org/10.1016/j.sna.2018.08.026",
+      "url_label": "论文原文",
+      "type": "journal-article",
+      "orcid_put_codes": [
+        231604470
+      ],
+      "hidden": false,
+      "overrides": {}
+    },
+    {
+      "id": "u-shaped-fiber-2018",
+      "title": "Determination of refractive index by a U-shaped multimode fiber sensor",
+      "authors": [
+        "Yong Zhang",
+        "Ming Lei",
+        "Haifeng Hu",
+        "Yong Zhao",
+        "Jin Li",
+        "Han Gao"
+      ],
+      "journal": "Instrumentation Science & Technology",
+      "year": 2018,
+      "volume": "46",
+      "issue": "5",
+      "pages": "490–501",
+      "doi": "10.1080/10739149.2017.1419253",
+      "url": "https://doi.org/10.1080/10739149.2017.1419253",
+      "url_label": "论文原文",
+      "type": "journal-article",
+      "orcid_put_codes": [
+        231604480
+      ],
+      "hidden": false,
+      "overrides": {}
+    },
+    {
+      "id": "hydrogel-spr-2018",
+      "title": "Smart hydrogel-based optical fiber SPR sensor for pH measurements",
+      "authors": [
+        "Yong Zhao",
+        "Ming Lei",
+        "Shi-Xuan Liu",
+        "Qiang Zhao"
+      ],
+      "journal": "Sensors and Actuators B: Chemical",
+      "year": 2018,
+      "volume": "261",
+      "issue": "",
+      "pages": "226–232",
+      "doi": "10.1016/j.snb.2018.01.120",
+      "url": "https://doi.org/10.1016/j.snb.2018.01.120",
+      "url_label": "论文原文",
+      "type": "journal-article",
+      "orcid_put_codes": [
+        231604463
+      ],
+      "hidden": false,
+      "overrides": {}
+    },
+    {
+      "id": "hydrogel-mzi-2018",
+      "title": "In-line Mach–Zehnder interferometer and FBG with smart hydrogel for simultaneous pH and temperature detection",
+      "authors": [
+        "Ming Lei",
+        "Ya-Nan Zhang",
+        "Bo Han",
+        "Qiang Zhao",
+        "Aozhuo Zhang",
+        "Dongxue Fu"
+      ],
+      "journal": "IEEE Sensors Journal",
+      "year": 2018,
+      "volume": "18",
+      "issue": "18",
+      "pages": "7499–7504",
+      "doi": "10.1109/jsen.2018.2862426",
+      "url": "https://doi.org/10.1109/jsen.2018.2862426",
+      "url_label": "论文原文",
+      "type": "journal-article",
+      "orcid_put_codes": [
+        231604462
+      ],
+      "hidden": false,
+      "overrides": {}
+    },
+    {
+      "id": "orcid-231604485",
+      "title": "Nasal-cannula-integrated Fabry–Pérot fiber sensor for respiration-driven Morse code communication",
+      "authors": [
+        "Qi Yu",
+        "Kunyang He",
+        "Lingxiao Jiang",
+        "Chao Yang",
+        "Ming Lei",
+        "Xuegang Li",
+        "Yong Zhao",
+        "Ya-Nan Zhang"
+      ],
+      "journal": "Optics Letters",
+      "year": 2026,
+      "volume": "51",
+      "issue": "16",
+      "pages": "4500–4503",
+      "doi": "10.1364/ol.607881",
+      "url": "",
+      "type": "journal-article",
+      "orcid_put_codes": [
+        231604485
+      ],
+      "hidden": false,
+      "overrides": {},
+      "doi_source": "Crossref: title, first author and year verified"
+    },
+    {
+      "id": "orcid-231604491",
+      "title": "Crater-Inspired Hollow Microdome Arrays for Linear Megapascal-Range Wearable Pressure Sensing",
+      "authors": [
+        "Ming Lei",
+        "Chenlong Meng",
+        "Biao Qi",
+        "Yuanzhe Liang",
+        "Zidong Yin",
+        "Jiayi Xu",
+        "Bingpu Zhou",
+        "Yanan Zhang"
+      ],
+      "journal": "ACS Applied Electronic Materials",
+      "year": 2026,
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "10.1021/acsaelm.6c01672",
+      "url": "",
+      "type": "journal-article",
+      "orcid_put_codes": [
+        231604491
+      ],
+      "hidden": false,
+      "overrides": {},
+      "doi_source": "Crossref: title, first author and year verified"
+    }
+  ],
+  "last_synced_at": "2026-10-29T17:47:01+08:00",
+  "last_orcid_work_count": 32
+}
