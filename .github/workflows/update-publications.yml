@@ -1,0 +1,116 @@
+    permissions:
+      contents: write
+    steps:
+      - name: Check out the latest website
+        uses: actions/checkout@v6
+        with:
+          ref: main
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Locate the existing scripts and publication data
+        id: layout
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p scripts tests data
+
+          # 兼容之前直接上传到根目录的文件；仅在运行环境中整理位置。
+          if [ ! -f scripts/update_publications.py ]; then
+            cp update_publications.py scripts/update_publications.py
+          fi
+          if [ ! -f tests/test_update_publications.py ]; then
+            cp test_update_publications.py tests/test_update_publications.py
+          fi
+          if [ -f data/publications.json ]; then
+            echo 'data_file=data/publications.json' >> "$GITHUB_OUTPUT"
+          else
+            cp publications.json data/publications.json
+            echo 'data_file=publications.json' >> "$GITHUB_OUTPUT"
+          fi
+          test -f publications.html
+
+      - name: Validate the updater
+        run: python -m unittest discover -s tests -p 'test_update_publications.py' -v
+
+      - name: Read public ORCID papers and update the page
+        env:
+          # 可留空：公开 ORCID 成果可匿名读取。
+          ORCID_ACCESS_TOKEN: ${{ secrets.ORCID_ACCESS_TOKEN }}
+        run: python scripts/update_publications.py
+
+      - name: Save the updated paper list
+        shell: bash
+        env:
+          DATA_FILE: ${{ steps.layout.outputs.data_file }}
+        run: |
+          set -euo pipefail
+          if [ "$DATA_FILE" = 'publications.json' ]; then
+            cp data/publications.json publications.json
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- publications.html "$DATA_FILE"
+          if ! git diff --cached --quiet; then
+            git commit -m 'Update publications from ORCID'
+            git push origin HEAD:main
+          fi
+
+  deploy:
+    name: Publish the website
+    needs: sync-publications
+    # 手动改网页会跳过论文同步、直接发布；同步失败仍发布仓库中已有的网页。
+    if: ${{ always() && !cancelled() }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Check out the latest website after synchronization
+        uses: actions/checkout@v6
+        with:
+          ref: main
+          persist-credentials: false
+
+      - name: Report a synchronization failure
+        if: needs.sync-publications.result == 'failure'
+        shell: bash
+        run: |
+          echo '::warning::ORCID synchronization failed. Publishing the existing paper list and latest website changes.'
+          echo 'ORCID 同步失败：本次仍发布仓库中的最新网页，论文列表使用已保存的版本。请查看 Sync public ORCID papers 中的错误。' >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Prepare the website
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f index.html
+          test -f news.html
+          test -f publications.html
+          mkdir -p _site
+          rsync -a ./ _site/ \
+            --exclude='/.git/' --exclude='/.github/' --exclude='/_site/' \
+            --exclude='/scripts/' --exclude='/tests/' --exclude='/data/' \
+            --exclude='__pycache__/' --exclude='*.pyc' --exclude='*.zip' \
+            --exclude='/update_publications.py' --exclude='/test_update_publications.py' \
+            --exclude='/publications.json' --exclude='/SETUP_ZH.txt' --exclude='/README.md'
+          touch _site/.nojekyll
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload the website
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+      - name: Deploy the website
+        id: deployment
+        uses: actions/deploy-pages@v4
