@@ -1,3 +1,35 @@
+# 在 GitHub 新建文件时，完整文件名必须是：
+# .github/workflows/update-publications.yml
+# Settings > Pages > Source 保持为 GitHub Actions。
+# 本流程兼容现有仓库根目录中的 Python 脚本和 publications.json。
+name: Update publications and deploy website
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      sync_publications:
+        description: 同步 ORCID 论文（取消勾选则仅发布网站）
+        type: boolean
+        default: true
+  schedule:
+    # UTC 02:17 = 北京时间每天 10:17，GitHub 调度可能略有延迟。
+    - cron: '17 2 * * *'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  sync-publications:
+    name: Sync public ORCID papers
+    if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.sync_publications)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
     permissions:
       contents: write
     steps:
